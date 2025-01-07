@@ -1,0 +1,124 @@
+magicmap, logfile=example_magicmap.log, 2024-07-07T02:42:02
+==================================magicmap==================================
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [aab06a51] MagicMap v1.0.1 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicMap`
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check offspring: OK. All 300 offspring in pedfile are also in samples in genofile
+check samples: OK. All 304 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_magiccall_geno.vcf.gz
+ pedinfo = example_magicfilter_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+list of file options: 
+genofile = example_magiccall_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+reset isdupebinning=false (#markers=429)
+Warning: skip magicld, using existed ldfile=d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap_magicld.csv.gz
+Warning: skip magiclinkage, using existed linkagefile=d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap_magiclinkage.csv.gz
+reset maxminlodcluster = 10
+---------------------------------construct----------------------------------
+list of args: 
+linkagefile = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap_magiclinkage.csv.gz
+ldfile = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap_magicld.csv.gz
+ispermmarker = true
+ncluster = nothing
+minncluster = 2
+maxncluster = 10
+eigselect = eigratio
+ncomponent = nothing
+minsilhouette = 0.5
+mincomponentsize = nothing
+maxrf(scaled from 0 to 1)= nothing
+binrf = nothing
+alwayskeep = 0.99
+maxminlodcluster = 10
+maxminlodorder = nothing
+minlodcluster = nothing
+minlodorder = nothing
+knncluster = nothing
+knnorder = nothing
+knnsave = nothing
+clusteralg = nothing
+isparallel = true(nworkers=10)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicmap
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap.log>)
+verbose = true
+read linkagefile, tused=0.2s, mem=2195MB
+read ldfile, tused=0.1s, mem=2204MB
+minlodsave=1.04
+set mincomponentsize = 5
+set maxrf=0.87 for #marker=390
+set ncomponent = 1
+set minlodcluster = 10.0; initial #ungrouped=0 for minlodsave=1.04; minlodcluster_his=11×5 DataFrame
+ Row │ minlod   objv     nconn  nungroup  nnode_1nbr
+     │ Float64  Float64  Int64  Int64     Int64
+─────┼───────────────────────────────────────────────
+   1 │     1.0    1.0        1         0           0
+   2 │     2.0    4.0        1         0           0
+   3 │     3.0    4.5        1         0           3
+   4 │     4.0    5.657      1         4           3
+   5 │     5.0    6.455      1        10           4
+   6 │     6.0    6.174      1        18          15
+   7 │     7.0    7.561      1        29          12
+   8 │     8.0    8.332      1        37          21
+   9 │     9.0    9.48       1        44          28
+  10 │    10.0   10.721      1        54          32
+  11 │    11.0   12.1        1        71          28
+reset maxminlodorder = 5
+set knn(cluster) = 39
+set clusteralg = kmeans for #markers >=20000
+sizes of 3 components(minlodcluster=10.0): 336,2,2 after removing omponents of size 1
+ncluster=2, nev=2, silhouette=0.9092, eigweight=0.0024, t(cluster|silh)=6.06|1.58s
+ncluster=3, nev=3, silhouette=0.9687, eigweight=0.0016, t(cluster|silh)=6.4|1.48s
+ncluster=4, nev=4, silhouette=0.9739, eigweight=0.4658, t(cluster|silh)=6.02|1.66s
+ncluster=5, nev=5, silhouette=0.9535, eigweight=0.0031, t(cluster|silh)=6.18|1.52s
+ncluster=6, nev=6, silhouette=0.8661, eigweight=0.0103, t(cluster|silh)=6.33|1.51s
+ncluster=7, nev=7, silhouette=0.817, eigweight=0.0031, t(cluster|silh)=6.97|1.36s
+Warning: nc0=8, nc=8, k=8, #repeat_kmeans=923, tused=0.3s; inconsistent clusterings = 70|53|49|48|35|34|32|15, 85|53|49|48|34|34|32|1; costs = 21.55,43.52
+ncluster=8, nev=8, silhouette=0.7668, eigweight=0.1173, t(cluster|silh)=7.14|1.17s
+Warning: nc0=9, nc=9, k=9, #repeat_kmeans=2488, tused=0.8s; inconsistent clusterings = 52|50|49|48|35|34|32|21|15, 52|50|49|44|39|34|32|21|15, 70|52|48|35|34|32|28|22|15; costs = 30.44,30.98,43.33
+ncluster=9, nev=9, silhouette=0.6997, eigweight=0.0037, t(cluster|silh)=8.31|0.99s
+ncluster=10, nev=10, silhouette=0.6994, eigweight=0.0015, t(cluster|silh)=8.61|1.01s
+4 group sizes: 87,85,83,81
+no markers with silhouette < 0.5
+marker_grouping, tused=24.4s, mem=2221MB
+#ungroupped markers = 54 out of 390
+eigenplot in example_magicmap_construct_eigen.png
+ncluster,eigweight,eigweight_scaled,average_silhouette,weighted_silhouette
+2,0.002351,0.005046,0.909226,0.909272
+3,0.001559,0.003346,0.968669,0.968701
+4,0.465845,1.0,0.973867,0.983605
+5,0.003056,0.00656,0.953507,0.95357
+6,0.010306,0.022123,0.866093,0.866284
+7,0.003056,0.006559,0.816953,0.817006
+8,0.117252,0.251697,0.766764,0.768693
+9,0.003692,0.007925,0.699658,0.699714
+10,0.001548,0.003323,0.699391,0.699414
+silhouette plot in example_magicmap_construct_silhouette.png
+LG1, size=87, l=85cM, minlod=5.0, knnorder=10, #nbr=11, t=0.3s, mem=1291MB
+LG2, size=85, l=100cM, minlod=5.0, knnorder=10, #nbr=11, t=0.3s, mem=1385MB
+LG3, size=83, l=108cM, minlod=5.0, knnorder=10, #nbr=11, t=0.3s, mem=1306MB
+LG4, size=81, l=78cM, minlod=5.0, knnorder=10, #nbr=11, t=0.3s, mem=1505MB
+tused=0.3s for all LGs, mem=2221MB
+4 genetic lengths: 85,100,108,78cM
+#ungrouped markers: 54 out of 390
+construct_map in example_magicmap_construct_map.csv.gz
+LD heatmap in example_magicmap_construct_LD_heatmap.png, tused = 6.7s
+Linkage heatmap in example_magicmap_construct_linkage_heatmap.png, tused = 3.7s
+End, 2024-07-07T02:42:41, tused = 38.1 seconds by construct
+----------------------------------------------------------------------------
+tau=0.9|0.83|0.923|0.757
+mapcompare in example_magicmap_construct_compare_inputmap.png
+End, 2024-07-07T02:42:47, tused = 45.3 seconds by magicmap
+============================================================================

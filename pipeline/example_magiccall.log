@@ -1,0 +1,51 @@
+magiccall, logfile=example_magiccall.log, 2024-07-07T02:40:49
+---------------------------------magiccall----------------------------------
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [668373cf] MagicCall v1.0.1 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicCall`
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check offspring: OK. All 300 offspring in pedfile are also in samples in genofile
+check samples: OK. All 304 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_magicfilter_geno.vcf.gz
+ pedinfo = example_magicfilter_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+list of args: 
+genofile = example_magicfilter_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+model = jointmodel
+likeparameters = LikeParameters(0.005, nothing, 0.0, nothing, nothing, nothing, 0.0)
+threshlikeparameters = ThreshLikeParameters(0.2, 0.2, 0.2, 0.2, 0.9, 1.0, 0.05)
+priorlikeparameters = PriorLikeParameters(Beta{Float64}(α=1.005, β=2.0), Beta{Float64}(α=1.05, β=9.0), Beta{Float64}(α=1.0, β=2.0), Beta{Float64}(α=1.1, β=99.0), Beta{Float64}(α=1.01, β=1.01), Exponential{Float64}(θ=0.5), Beta{Float64}(α=1.0, β=19.0))
+isfounderinbred = true
+israndallele = true
+byfounder = 1
+delmultiallelic = true
+delmonomorphic = true
+snp_minmaf = 0.05
+snp_maxmiss = 0.99
+threshcall = 0.9
+israwcall = false
+isinfererror = true
+isparallel = true(nworker=10)
+outstem = example
+outext = .vcf.gz
+logfile = example_magiccall.log
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+verbose = true
+#markers=498 divided into 2 blocks; each block distributed over 10 workers
+begin, #founders=4, #offspring=300
+#marker=490, #marker_incl=422, #monomorphic=21, #largeerror=[0, 11, 0, 12, 8, 0], #>=maxmiss=16, tused=53.7s
+#marker=498, #marker_incl=429, #monomorphic=22, #largeerror=[0, 11, 0, 12, 8, 0], #>=maxmiss=16, tused=3.5s
+end, #founders=4, #offspring=300, #marker=498, #marker_incl=429, #monomorphic=22, #largeerror=[0, 11, 0, 12, 8, 0], #>=maxmiss=16, tused=57.1s
+save called_genofile: example_magiccall_geno.vcf.gz
+save delmarker_genofile: example_magiccall_delmarker.vcf.gz
+End, 2024-07-07T02:41:48, tused = 58.8 seconds by magiccall
+----------------------------------------------------------------------------

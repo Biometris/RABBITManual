@@ -1,0 +1,49 @@
+magiclinkage, logfile=example_magicmap_magiclinkage.log, 2024-01-08T21:20:07
+================================magiclinkage================================
+list of file args: 
+genofile = example_magiccall_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+formatpriority = ["GT", "AD"]
+isfounderinbred = true
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\RABBITDocs\docs\src\pipeline
+
+formmagicgeno, tused=2.4seconds, mem=2131|2130MB
+--------------------------------magiclinkage--------------------------------
+list of options: 
+ldfile = example_magicmap_magicld.csv.gz
+isfounderinbred = true
+model = jointmodel
+likeparameters = LikeParameters(0.005, nothing, nothing, nothing, nothing, nothing, nothing)
+israndallele = false
+threshcall = 0.95
+snpthin = 1
+byfounder = 0
+minlodsave = nothing
+maxrfsave = 1.0
+isparallel = true(nworkers=4)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicmap
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap_magiclinkage.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = GT_unphased
+#founder=4, #offspring=300, #subpop=3, #chr=1, #snp=390
+set minlodsave = 1.039
+28384 out of 75855 pairs, fraction = 37.4188%
+pop=pop1, ibd=1.0, jointmodel=>depmodel
+pop=pop3, ibd=0.75, jointmodel=>indepmodel
+pop=pop2, ibd=0.5, jointmodel=>indepmodel
+#markers=390, #individuals=300, 1st-individual=pop1_1
+memoryuse=2145|2133MB
+4 sets of snppairs, distributed over 4 workers
+worker=4, #snppairs=7097, t=9.5s, mem=1354|1338MB
+worker=5, #snppairs=7097, t=9.8s, mem=1390|1345MB
+worker=3, #snppairs=7097, t=9.6s, mem=1362|1344MB
+worker=2, #snppairs=7093, t=9.7s, mem=1358|1340MB
+tused=14.4s for all markers, mem=2136|2133MB
+magiclinkage file: example_magicmap_magiclinkage.csv.gz, tused=0.2s in merging outfiles
+End, 2024-01-08T21:20:32, tused = 22.5 seconds by magiclinkage
+----------------------------------------------------------------------------
+End, 2024-01-08T21:20:32, tused = 25.0 seconds by magiclinkage
+============================================================================

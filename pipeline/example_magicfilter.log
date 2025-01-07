@@ -1,0 +1,176 @@
+magicfilter, logfile=example_magicfilter.log, 2024-07-07T02:40:07
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡magicfilter≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [8c7048f2] MagicFilter v0.9.1 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicFilter`
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check offspring: OK. All 300 offspring in pedfile are also in samples in genofile
+check samples: OK. All 304 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_magicsimulate_geno.vcf.gz
+ pedinfo = example_magicsimulate_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+nthreads=6
+list of file options: 
+genofile = example_magicsimulate_geno.vcf.gz
+pedinfo = example_magicsimulate_ped.csv
+formatpriority = ["AD", "GT"]
+isphysmap = false
+recomrate = 1.0
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+tused=4.2 seconds by formmagicgeno
+================================magicfilter!================================
+----------------------------filter_subpop_size!-----------------------------
+list of options: 
+model = jointmodel
+isfounderinbred = true
+min_subpop = 1
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicfilter
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicfilter.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=500
+save sizes of each subpop in example_magicfilter_subpop_size.csv
+no offspring deleted
+End, 2024-07-07T02:40:13, tused = 0.2 seconds by purify_subpop
+----------------------------------------------------------------------------
+--------------------------filter_founder_progeny!---------------------------
+list of options: 
+model = jointmodel
+isfounderinbred = true
+min_nprogeny = 1
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicfilter
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicfilter.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=500
+no offspring deleted
+End, 2024-07-07T02:40:13, tused = 0.0 seconds by purify_founder
+----------------------------------------------------------------------------
+-------------------------------filter_marker!-------------------------------
+list of options: 
+model = jointmodel
+epso = 0.005
+isfounderinbred = true
+threshcall =0.95
+snp_monosubpop = 20
+snp_mono2miss = true
+del_inconsistent = false
+snp_minmaf = 0.05
+snp_missfilter = CodeInfo(
+1 ─ %1 = o <= 0.9
+└──      return %1
+)
+isparallel = true(nworkers=10)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicfilter
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicfilter.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=500
+founder frac_missing = 0.17, offspring frac_missing = 0.14982
+-----monomorphic test for each subpopulation at each marker
+sub-populations ["pop1", "pop2"]:   possible a2-freq = [0.005, 0.5, 0.995]; minimum sub-popsize = 20 for monomorphic test
+sub-populations ["pop3"]:   possible a2-freq = [0.005, 0.1288, 0.2525, 0.7475, 0.8712, 0.995]; minimum sub-popsize = 36 for monomorphic test
+#snp_inconsist = #markers with inconsistent monomorphic subpopulations
+#impute_f = #imputed founder genotypes out of missing founder genotypes
+#correct_f = #corrected founder genotypes out of observed founder genotypes
+
+chr=1, #snp_inconsist=0|125, #impute_f=34|87, #correct_f=3|413, t=9.6s
+chr=2, #snp_inconsist=0|125, #impute_f=32|88, #correct_f=8|412, t=9.5s
+chr=3, #snp_inconsist=0|125, #impute_f=21|84, #correct_f=14|416, t=9.9s
+chr=4, #snp_inconsist=0|125, #impute_f=36|81, #correct_f=7|419, t=9.9s
+heterozygous offspring genotypes for subpopulations with depmodel are set to missing. 
+offspring frac_heterozygous out of observed genotypes = 0.02338
+all_chrs, snp_inconsistent=0.0, impute_founder=0.36176, correct_founder=0.01928, t=14.6s
+founder frac_missing = 0.1085, offspring frac_missing = 0.37577
+-----filter sequentially for snp_consistent, snp_missfilter, and maf >= 0.05
+plot missing distribution in example_magicfilter_snp_missing.png
+plot maf distribution in example_magicfilter_snp_MAF.png
+calculate offspring missing and MAF with mono2miss=true
+chr=1, #inconsistent=0, #missing=1, #(maf<0.05)=0, #del=1 of 125, t=2.1s
+chr=2, #inconsistent=0, #missing=0, #(maf<0.05)=0, #del=0 of 125, t=1.8s
+chr=3, #inconsistent=0, #missing=1, #(maf<0.05)=0, #del=1 of 125, t=1.8s
+chr=4, #inconsistent=0, #missing=0, #(maf<0.05)=0, #del=0 of 125, t=1.6s
+all_chrs, #inconsistent=0, #missing=2, #(maf<0.05)=0, #del=2 of 500, t=7.3s
+founder frac_missing = 0.10843, offspring frac_missing = 0.37387
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=498
+End, 2024-07-07T02:40:37, tused = 24.1 seconds by filter_marker!
+----------------------------------------------------------------------------
+-------------------------filter_offspring_missing!--------------------------
+list of options: 
+model = jointmodel
+isfounderinbred = true
+threshcall =0.9
+offspring_maxmiss = 0.95
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicfilter
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicfilter.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=498
+founder frac_missing = 0.10843, offspring frac_missing = 0.37387
+save frac_missing_genotype for each individual in example_magicfilter_ind_missing.csv
+no offspring deleted
+founder frac_missing = 0.10843, offspring frac_missing = 0.37387
+End, 2024-07-07T02:40:38, tused = 1.9 seconds by purify_missing
+----------------------------------------------------------------------------
+---------------------------filter_offspring_dupe!---------------------------
+list of options: 
+model = jointmodel
+isfounderinbred = true
+threshcall =0.9
+offspring_maxcorr = 0.99
+offspring_cutcorr = 0.4
+isparallel = true(nworkers=10)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicfilter
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicfilter.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=498
+get_dosegeno, tused=2.3s, mem=2158|2128MB
+10 sets of offspring ranges, distributed over 10 workers
+worker=2, offspring=205:299, t=3.0s, mem=1086|1065MB
+worker=7, offspring=166:204, t=2.8s, mem=1207|1172MB
+worker=10, offspring=136:165, t=2.9s, mem=1301|1256MB
+worker=11, offspring=111:135, t=2.7s, mem=1296|1250MB
+worker=6, offspring=88:110, t=2.9s, mem=1254|1209MB
+worker=4, offspring=68:87, t=2.7s, mem=1268|1209MB
+worker=8, offspring=49:67, t=2.9s, mem=1246|1182MB
+worker=9, offspring=32:48, t=2.9s, mem=1271|1231MB
+worker=3, offspring=16:31, t=2.8s, mem=1205|1158MB
+worker=5, offspring=1:15, t=2.8s, mem=1211|1169MB
+tused=3.9s for all offspring, mem=2128MB
+pairwise offspring correlations: example_magicfilter_ind_correlation.csv.gz
+no offspring deleted
+End, 2024-07-07T02:40:45, tused = 6.4 seconds by purify_dupe
+----------------------------------------------------------------------------
+End, 2024-07-07T02:40:45, tused = 33.9 seconds by magicfilter!
+============================================================================
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=498
+founder frac_missing = 0.10843, offspring frac_missing = 0.37387
+save after-magicfilter genofile: example_magicfilter_geno.vcf.gz
+save after-magicfilter pedfile: example_magicfilter_ped.csv
+save design plot in example_magicfilter_ped.png
+End, 2024-07-07T02:40:45, tused = 38.8 seconds by magicfilter
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

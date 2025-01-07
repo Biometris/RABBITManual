@@ -1,0 +1,14 @@
+##col_1, ncluster, number of clusters
+##col_2, eigweight, weight based on ncluster-th and (ncluster+1)-th eigenvalues
+##col_3, eigweight_scaled, eigweight divided by the maximum of all eigweights
+##col_4, average_silhouette, silhouette score averages over markers && see https://en.wikipedia.org/wiki/Silhouette_(clustering)
+ncluster,eigweight,eigweight_scaled,average_silhouette,weighted_silhouette
+2,0.002351,0.005046,0.909226,0.909272
+3,0.001559,0.003346,0.968669,0.968701
+4,0.465845,1.0,0.973867,0.983605
+5,0.003056,0.00656,0.953507,0.95357
+6,0.010306,0.022123,0.866093,0.866284
+7,0.003056,0.006559,0.816953,0.817006
+8,0.117252,0.251697,0.766764,0.768693
+9,0.003692,0.007925,0.699658,0.699714
+10,0.001548,0.003323,0.699391,0.699414

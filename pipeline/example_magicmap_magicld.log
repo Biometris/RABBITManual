@@ -1,0 +1,46 @@
+magicld, logfile=example_magicmap_magicld.log, 2024-01-08T21:19:57
+==================================magicld===================================
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [0c97556f] MagicLD v0.8.0 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicLD`
+list of file args/options: 
+genofile = example_magiccall_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+isdepmodel = false
+formatpriority = ["GT", "AD"]
+missingstring = ["NA", "missing"]
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\RABBITDocs\docs\src\pipeline
+
+formmagicgeno, tused=2.8s, mem=2151|2130MB
+----------------------------------magicld-----------------------------------
+list of options: 
+binfile = nothing
+isdepmodel = false
+threshcall = 0.95
+seqerror = 0.001
+snpthin = 1
+minlodsave = nothing
+minldsave = nothing
+isparallel = true(nworkers=4)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example_magicmap
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\RABBITDocs\docs\src\pipeline\example_magicmap_magicld.log>)
+verbose = true
+#markers=390, #individuals=300, 1st-individual=pop1_1
+set minlodsave = 1.039
+set minldsave = 0.0001; r=sqrt(ld)=0.01
+founderformat = GT_unphased
+offspringformat = GT_unphased
+#founder=4, #offspring=300, #subpop=3, #chr=1, #snp=390
+get_dosegeno, tused=1.8s, mem=2135|2130MB
+4 sets of snpranges, distributed over 4 workers
+worker=4, snps=195:389, t=2.9s, mem=1358|1328MB
+worker=2, snps=115:194, t=3.0s, mem=1362|1330MB
+worker=5, snps=53:114, t=3.0s, mem=1368|1333MB
+worker=3, snps=1:52, t=2.9s, mem=1366|1334MB
+tused=4.8s for all markers, mem=2130MB
+magicld file: example_magicmap_magicld.csv.gz, tused=0.7s in merging outfiles
+End, 2024-01-08T21:20:07, tused = 7.9 seconds by magicld
+----------------------------------------------------------------------------
+End, 2024-01-08T21:20:07, tused = 10.8 seconds by magicld
+============================================================================

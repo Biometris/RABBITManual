@@ -1,0 +1,12 @@
+##col_1, founder, founder ID
+##col_2, noffspring, number of offspring for the founder
+##col_3, nmarker, number of markers
+##col_4, miss_afterimpute, fraction of missing genotypes for the founder after imputation
+##col_5, ntrue, number of groud true genotypes for the founder
+##col_6, nonimpute, fraction of ground true genotypes that are not imputed
+##col_7, correctimpute, fraction of ground true genotypes that are correctly imputedd
+founder,noffspring,nmarker,miss_afterimpute,ntrue,nonimpute,correctimpute
+P1,200,297,0.0,27,0.0,0.9259259259259259
+P2,200,297,0.0,30,0.0,0.9333333333333333
+P3,200,297,0.0,20,0.0,0.8
+P4,100,297,0.0,21,0.0,0.8571428571428571

@@ -1,0 +1,29 @@
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [4e8dc5fd] MagicScan v0.7.1 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicScan`
+=================================magicscan==================================
+magicscan, logfile=example_magicscan.log, 2024-07-07T02:48:01
+nthreads=6
+list of args: 
+ancestryfile = example_magicreconstruct_ancestry.csv.gz
+phenofile = example_magicsimulate_pheno.csv
+equation = phenotype ~ 1 + population
+thresholds = nothing
+nperm = 200
+siglevels = [0.05]
+islog10p = true
+missingstring = ["NA", "missing"]
+commentstring = ##
+outstem = example
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+logfile = example_magicscan.log
+verbose = true
+#offspring=300, #marker_bef=297, #marker_aft=190, thincm=0.0cM
+tused in reading data: 4.77s
+tused in scanning QTL: 2.779s
+tused in calculating thresholds: 2.82s
+	neg_log10p-thresholds = [2.9547] at [0.05]
+peak=snp414|LG3|49.9417, lod=missing, -log10P=-168.6087
+tused in saving and plotting: 2.45s
+End, 2024-07-07T02:48:14, tused = 13.11 seconds by magicscan
+============================================================================

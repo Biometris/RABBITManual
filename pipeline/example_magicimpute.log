@@ -1,0 +1,343 @@
+magicmask_impute, logfile=example_magicimpute.log, 2024-07-07T02:42:52
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣magicmask_impute≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [6ad26e1e] MagicBase v1.3.3 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicBase`
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [d6bde97e] MagicImpute v1.3.3 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicImpute`
+=================================magicmask==================================
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check offspring: OK. All 300 offspring in pedfile are also in samples in genofile
+check samples: OK. All 304 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_magicfilter_geno.vcf.gz
+ pedinfo = example_magicfilter_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+list of file options: 
+genofile = example_magicfilter_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+formatpriority = ["AD", "GT"]
+isphysmap = false
+recomrate = 1.0
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+nthreads=6
+tused=1.6 seconds by formmagicgeno
+---------------------------------magicmask!---------------------------------
+list of options: 
+foundermask = 0.1
+offspringmask = 0.1
+minread = 10
+skipmarker = 0.99
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicimpute.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=498
+tused=0.1s in copying magicgeno
+foundermask = 0.1, #mask = 162, #nonmiss = 1776, miss_freq = 0.1084, tused=0.4s
+offspringmask = 0.1, #mask = 4070, #nonmiss = 41778, miss_freq = 0.7204, tused=0.2s
+save reversed masked-genofile (ground truth): example_magicmask_reversed.vcf.gz
+End, 2024-07-07T02:42:54, tused = 1.0 seconds by magicmask!
+----------------------------------------------------------------------------
+save magicmask genofile: example_magicmask_geno.vcf.gz
+End, 2024-07-07T02:42:55, tused = 2.8 seconds by magicmask
+============================================================================
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡magicimpute≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check offspring: OK. All 300 offspring in pedfile are also in samples in genofile
+check samples: OK. All 304 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_magicmask_geno.vcf.gz
+ pedinfo = example_magicfilter_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+nthreads=6
+list of file options: 
+genofile = example_magicmask_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+formatpriority = ["AD", "GT"]
+isphysmap = false
+recomrate = 1.0
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+#marker=336,#bin=336,<binsize>=1.0
+reset isbinning=false
+================================magicimpute!================================
+list of sbuset options: 
+chrsubset = all chromosomes
+snpsubset = all markers
+Genetic positions of markers in each chromosome are in non-descreasing order
+----------------------------magicimpute_founder!----------------------------
+list of options: 
+model = jointmodel
+likeparameters = LikeParameters(0.005, nothing, nothing, nothing, nothing, nothing, 0.0)
+threshlikeparameters = ThreshLikeParameters(0.2, 0.2, 0.2, 0.2, 0.9, 1.0, 0.05)
+priorlikeparameters = PriorLikeParameters(Beta{Float64}(α=1.005, β=2.0), Beta{Float64}(α=1.005, β=2.0), Beta{Float64}(α=1.0, β=2.0), Beta{Float64}(α=1.001, β=2.0), Beta{Float64}(α=1.01, β=1.01), Exponential{Float64}(θ=0.5), Beta{Float64}(α=1.0, β=19.0))
+israndallele = true
+isfounderinbred = true
+threshimputefounder = 0.9
+threshrepeat = 0.05
+byfounder = 0
+isrepeatimpute = nothing
+nrepeatmin = 3
+nrepeatmax = 6
+inputneighbor = dict of size 336
+isinferjunc = nothing
+iscorrectfounder = nothing
+isdelmarker = true
+delsiglevel = 0.01
+isinfererror = true
+tukeyfence = 3.0
+minoutlier = 0.05
+isordermarker = true
+isspacemarker = true
+trimcm = 20
+trimfraction = 0.05
+skeletonsize = nothing
+slidewin = nothing
+slidewin_neighbor = 200
+orderactions = ["inverse", "inverse00"]
+orderactions_neighbor = ["inverse", "inverse01"]
+inittemperature = 2.0
+coolrate = 0.7
+minaccept = 0.15
+spacebyviterbi = false
+isparallel = true(nworkers=10)
+maxiter = 50
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+tempdirectory = C:\Users\zheng026\AppData\Local\Temp
+outstem = example_magicimpute
+outext = .vcf.gz
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicimpute.log>)
+verbose = true
+more_verbose = false
+average #neighbors per marker =  10.3
+reset isinferjunc = false
+inferring likelihood parameters ["offspringerror", "peroffspringerror", "seqerror", "allelebalancemean", "allelebalancedisperse"]
+reset iscorrectfounder=false
+reset isrepeatimpute = false
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=335
+start founder imputation without repeating
+chrid=>#snp: LG1=>86|LG4=>81|LG3=>83|LG2=>85
+saveby_chromosome, tused=0.3seconds, mem=2260|2231MB
+chr=LG1, reading magicgeno, #markers=86, tused=1.9s, mem=1378|1329
+chr=LG1, initial <likeparameters> = [0.005, 0.005, 0.0, 0.001, 0.5, 0.0, 0.0]
+chr=LG1, blocksize=2|2, avgfmiss=0.1948, fmiss=[0.1512, 0.186, 0.2093, 0.2326]
+chr=LG1, #snp=86, max_slidewin_neighbor=86, init_slidewin=10, begin
+chr=LG1, it=1, #diff=36, T=2.0, t=6s
+chr=LG1, it=2, #diff=2, #mono=1, εo=0.03, ξo=0.001, εseq=0.0038, ABmean=0.49, disperse=0.009, win=8_9, apt=30_8%, l=275cM, T=2.0, t=4|10|3_6|1s
+chr=LG1, it=3, #diff=3, εo=0.064, ξo=0.002, εseq=0.0036, ABmean=0.5, disperse=0.105, win=10_8, apt=14_10%, l=187cM, T=1.4, t=6|4|3_5|1s
+chr=LG1, it=4, #diff=4, εo=0.074, ξo=0.004, εseq=0.0037, ABmean=0.5, disperse=0.123, win=7_7, apt=22_11%, l=106cM, T=0.98, t=8|4|2_4|1s
+chr=LG1, it=5, #diff=1, εo=0.095, ξo=0.005, εseq=0.0038, ABmean=0.5, disperse=0.159, #del=3, win=7_6, apt=8_14%, l=95cM, T=0.686, t=12|3|3|2_4|1s
+chr=LG1, it=6, #diff=0, εo=0.081, ξo=0.006, εseq=0.0039, ABmean=0.5, disperse=0.201, #del=0, win=4_4, apt=12_18%, l=96cM, T=0.48, t=8|3|2|2_3|1s
+chr=LG1, it=7, εo=0.08, ξo=0.006, εseq=0.0035, ABmean=0.5, disperse=0.219, win=4_4, apt=24_38%, l=89cM, T=0.24, t=3|1_3|1s
+chr=LG1, it=8, εo=0.079, ξo=0.006, εseq=0.0035, ABmean=0.5, disperse=0.23, win=4_3, apt=32_25%, l=95cM, T=0.12, t=3|1_3|1s
+chr=LG1, it=9, εo=0.079, ξo=0.007, εseq=0.0036, ABmean=0.49, disperse=0.24, win=3_3, apt=30_30%, l=96cM, T=0.06, t=4|1_2|1s
+chr=LG1, it=10, εo=0.078, ξo=0.009, εseq=0.0034, ABmean=0.49, disperse=0.25, win=3.8_3.4, apt=22_26%, l=95cM, T=0.01, t=3|1_3|1s
+chr=LG1, it=11, εo=0.076, ξo=0.011, εseq=0.0034, ABmean=0.5, disperse=0.247, win=3.8_3.2, apt=6_12%, l=95cM, T=0.0, t=6|1_2|2s
+chr=LG1, it=12, εo=0.074, ξo=0.012, εseq=0.0034, ABmean=0.5, disperse=0.246, win=3.4_3.4, apt=5_11%, l=91cM, T=0.0, t=6|1_3|2s
+chr=LG1, it=13, εo=0.073, ξo=0.013, εseq=0.0034, ABmean=0.5, disperse=0.245, win=3.0_3.2, apt=9_5%, l=92cM, T=0.0, t=6|1_3|2s
+chr=LG1, it=14, εo=0.072, ξo=0.013, εseq=0.0034, ABmean=0.5, disperse=0.245, #del_err=13, del_εo=0.23|0.75|0.39|0.25|0.93|0.28|0.28|0.2|0.35|0.39|0.53|0.28 at snps=3|9|31|33|42|41|53|57|70|84|74|82, del_ABm=0.012|0.988|0.961|0.032 at snps=3|31|70|74, del_disperse=1.021|1.112|1.723 at snps=16|84|82, l=91cM, T=0.0, t=6|1s
+chr=LG1, it=15, εo=0.016, ξo=0.014, εseq=0.0038, ABmean=0.5, disperse=0.192, l=92cM, T=0.0, t=5|1s
+chr=LG1, it=16, εo=0.016, ξo=0.014, εseq=0.0038, ABmean=0.5, disperse=0.192, l=91cM, T=0.0, t=5|1s
+chr=LG1, it=17, #skeleton=45, #segment=50, εo=0.0057, ξo=0.014, εseq=0.0035, ABmean=0.5, disperse=0.161, l=95cM, t=6s
+chr=LG1, it=18, #skeleton=45, #segment=50, εo=0.0057, ξo=0.014, εseq=0.0035, ABmean=0.5, disperse=0.159, l=94cM, t=6s
+chr=LG1, it=19, #skeleton=45, #segment=50, εo=0.0058, ξo=0.014, εseq=0.0035, ABmean=0.5, disperse=0.158, l=94cM, t=5s
+chr=LG1, logl=-13768.6, #snp=86, #snp_incl=70, l=94.2cM, fmiss=0.0|0.0|0.0|0.0, t=210s, mem=1422|1352MB, end
+chr=LG2, reading magicgeno, #markers=85, tused=1.8s, mem=1454|1426
+chr=LG2, initial <likeparameters> = [0.005, 0.005, 0.0, 0.001, 0.5, 0.0, 0.0]
+chr=LG2, blocksize=2|2, avgfmiss=0.1912, fmiss=[0.2, 0.1412, 0.1294, 0.2941]
+chr=LG2, #snp=85, max_slidewin_neighbor=85, init_slidewin=10, begin
+chr=LG2, it=1, #diff=32, T=2.0, t=6s
+chr=LG2, it=2, #diff=3, #mono=2, εo=0.025, ξo=0.001, εseq=0.0041, ABmean=0.53, disperse=0.003, win=9_10, apt=33_7%, l=118cM, T=2.0, t=6|10|3_6|1s
+chr=LG2, it=3, #diff=2, εo=0.046, ξo=0.002, εseq=0.005, ABmean=0.52, disperse=0.039, win=10_8, apt=16_10%, l=166cM, T=1.4, t=6|4|3_5|1s
+chr=LG2, it=4, #diff=1, εo=0.055, ξo=0.004, εseq=0.0048, ABmean=0.53, disperse=0.052, win=11_6, apt=15_13%, l=146cM, T=0.98, t=8|3|3_4|1s
+chr=LG2, it=5, #diff=0, εo=0.053, ξo=0.005, εseq=0.0046, ABmean=0.52, disperse=0.092, #del=0, win=11_5, apt=18_20%, l=128cM, T=0.686, t=8|3|2|3_4|1s
+chr=LG2, it=6, εo=0.047, ξo=0.006, εseq=0.0048, ABmean=0.52, disperse=0.106, win=9_5, apt=10_17%, l=129cM, T=0.48, t=3|3_4|1s
+chr=LG2, it=7, εo=0.044, ξo=0.006, εseq=0.0046, ABmean=0.52, disperse=0.129, win=5_4, apt=19_27%, #del_trim=2(seg=Any[84:85]; deltd=[0.23, 0.0]), l=111cM, T=0.24, t=3|2_3|1s
+chr=LG2, it=8, εo=0.043, ξo=0.007, εseq=0.0042, ABmean=0.52, disperse=0.155, win=5_4, apt=9_27%, l=97cM, T=0.12, t=4|2_3|1s
+chr=LG2, it=9, εo=0.039, ξo=0.008, εseq=0.0045, ABmean=0.52, disperse=0.175, win=4_3, apt=14_28%, l=105cM, T=0.06, t=4|1_3|1s
+chr=LG2, it=10, εo=0.037, ξo=0.009, εseq=0.0044, ABmean=0.52, disperse=0.185, win=3.6_3.2, apt=23_24%, l=102cM, T=0.01, t=3|1_3|1s
+chr=LG2, it=11, εo=0.035, ξo=0.011, εseq=0.0042, ABmean=0.52, disperse=0.206, win=3.5_3.2, apt=3_5%, l=102cM, T=0.0, t=6|1_3|2s
+chr=LG2, it=12, εo=0.031, ξo=0.013, εseq=0.0043, ABmean=0.53, disperse=0.204, win=3.2_3.4, apt=31_12%, l=97cM, T=0.0, t=6|1_3|2s
+chr=LG2, it=13, εo=0.029, ξo=0.014, εseq=0.0044, ABmean=0.53, disperse=0.201, win=2.9_3.3, apt=13_16%, l=99cM, T=0.0, t=6|1_3|2s
+chr=LG2, it=14, εo=0.027, ξo=0.014, εseq=0.0043, ABmean=0.53, disperse=0.198, l=96cM, T=0.0, t=6|2s
+chr=LG2, it=15, εo=0.027, ξo=0.015, εseq=0.0044, ABmean=0.53, disperse=0.198, #del_err=5, del_εo=0.52|0.28 at snps=49|75, del_ABm=0.066|0.99 at snps=8|36, del_disperse=1.453 at snps=10, l=97cM, T=0.0, t=6|2s
+chr=LG2, it=16, εo=0.016, ξo=0.015, εseq=0.0043, ABmean=0.53, disperse=0.187, l=95cM, T=0.0, t=6|2s
+chr=LG2, it=17, εo=0.016, ξo=0.015, εseq=0.0044, ABmean=0.53, disperse=0.186, l=97cM, T=0.0, t=6|2s
+chr=LG2, it=18, #skeleton=49, #segment=53, εo=0.0052, ξo=0.015, εseq=0.0043, ABmean=0.52, disperse=0.151, l=90cM, t=6s
+chr=LG2, it=19, #skeleton=49, #segment=53, εo=0.0053, ξo=0.015, εseq=0.0041, ABmean=0.52, disperse=0.15, l=90cM, t=6s
+chr=LG2, it=20, #skeleton=49, #segment=53, εo=0.0052, ξo=0.015, εseq=0.0041, ABmean=0.52, disperse=0.151, l=90cM, t=6s
+chr=LG2, logl=-12628.0, #snp=85, #snp_incl=78, l=90.2cM, fmiss=0.0|0.0|0.0|0.0, t=213s, mem=1564|1465MB, end
+chr=LG3, reading magicgeno, #markers=83, tused=1.8s, mem=1276|1248
+chr=LG3, initial <likeparameters> = [0.005, 0.005, 0.0, 0.001, 0.5, 0.0, 0.0]
+chr=LG3, blocksize=2|1|1, avgfmiss=0.1596, fmiss=[0.2048, 0.0964, 0.1566, 0.1807]
+chr=LG3, #snp=83, max_slidewin_neighbor=83, init_slidewin=10, begin
+chr=LG3, it=1, #diff=31, T=2.0, t=6s
+chr=LG3, it=2, #diff=1, #mono=1, εo=0.03, ξo=0.001, εseq=0.0035, ABmean=0.5, disperse=0.001, win=11_10, apt=29_17%, l=183cM, T=2.0, t=4|10|4_5|1s
+chr=LG3, it=3, #diff=1, εo=0.047, ξo=0.003, εseq=0.0041, ABmean=0.49, disperse=0.016, win=10_9, apt=13_5%, l=124cM, T=1.4, t=4|4|3_5|1s
+chr=LG3, it=4, #diff=0, εo=0.052, ξo=0.005, εseq=0.0042, ABmean=0.49, disperse=0.08, #del=1, win=8_8, apt=16_6%, l=111cM, T=0.98, t=8|4|2|3_4|1s
+chr=LG3, it=5, εo=0.053, ξo=0.006, εseq=0.0032, ABmean=0.49, disperse=0.154, #del=0, win=8_6, apt=20_12%, l=85cM, T=0.686, t=3|2|2_4|1s
+chr=LG3, it=6, εo=0.056, ξo=0.006, εseq=0.0033, ABmean=0.5, disperse=0.179, win=8_5, apt=13_21%, l=86cM, T=0.48, t=3|2_3|1s
+chr=LG3, it=7, εo=0.053, ξo=0.006, εseq=0.0032, ABmean=0.51, disperse=0.223, win=6_4, apt=13_26%, l=79cM, T=0.24, t=3|2_3|1s
+chr=LG3, it=8, εo=0.052, ξo=0.006, εseq=0.0031, ABmean=0.5, disperse=0.22, win=6_4, apt=21_21%, l=83cM, T=0.12, t=3|2_3|1s
+chr=LG3, it=9, εo=0.05, ξo=0.007, εseq=0.003, ABmean=0.5, disperse=0.241, win=6_3, apt=8_19%, l=81cM, T=0.06, t=3|2_2|1s
+chr=LG3, it=10, εo=0.049, ξo=0.008, εseq=0.003, ABmean=0.49, disperse=0.239, win=3.7_3.2, apt=7_14%, l=83cM, T=0.01, t=3|1_3|1s
+chr=LG3, it=11, εo=0.046, ξo=0.011, εseq=0.003, ABmean=0.49, disperse=0.263, win=3.0_3.2, apt=12_10%, l=78cM, T=0.0, t=6|1_3|2s
+chr=LG3, it=12, εo=0.043, ξo=0.013, εseq=0.003, ABmean=0.49, disperse=0.266, win=3.0_3.3, apt=20_8%, l=77cM, T=0.0, t=6|1_2|2s
+chr=LG3, it=13, εo=0.043, ξo=0.014, εseq=0.0031, ABmean=0.49, disperse=0.267, win=3.0_3.2, apt=2_10%, l=77cM, T=0.0, t=6|1_3|2s
+chr=LG3, it=14, εo=0.042, ξo=0.014, εseq=0.0031, ABmean=0.49, disperse=0.268, l=76cM, T=0.0, t=5|2s
+chr=LG3, it=15, εo=0.041, ξo=0.014, εseq=0.0031, ABmean=0.49, disperse=0.268, #del_err=10, del_εo=0.37|0.31|0.25|0.23|0.43 at snps=23|24|36|39|31, del_ABm=0.913|0.905|0.074|0.0 at snps=23|24|31|83, del_disperse=1.029|1.101|1.26|1.035|1.21 at snps=24|35|74|48|56, l=75cM, T=0.0, t=6|1s
+chr=LG3, it=16, εo=0.02, ξo=0.015, εseq=0.0031, ABmean=0.49, disperse=0.197, l=75cM, T=0.0, t=5|1s
+chr=LG3, it=17, εo=0.02, ξo=0.015, εseq=0.0031, ABmean=0.49, disperse=0.196, l=75cM, T=0.0, t=5|1s
+chr=LG3, it=18, #skeleton=50, #segment=52, εo=0.0095, ξo=0.015, εseq=0.0031, ABmean=0.5, disperse=0.165, l=74cM, t=6s
+chr=LG3, it=19, #skeleton=50, #segment=52, εo=0.0094, ξo=0.015, εseq=0.0031, ABmean=0.5, disperse=0.164, l=74cM, t=6s
+chr=LG3, it=20, #skeleton=50, #segment=52, εo=0.0094, ξo=0.015, εseq=0.0032, ABmean=0.5, disperse=0.164, l=74cM, t=6s
+chr=LG3, logl=-12110.9, #snp=83, #snp_incl=72, l=74.2cM, fmiss=0.0|0.0|0.0|0.0, t=200s, mem=1364|1319MB, end
+chr=LG4, reading magicgeno, #markers=81, tused=1.9s, mem=1352|1327
+chr=LG4, initial <likeparameters> = [0.005, 0.005, 0.0, 0.001, 0.5, 0.0, 0.0]
+chr=LG4, blocksize=3|1, avgfmiss=0.2099, fmiss=[0.1852, 0.2593, 0.1358, 0.2593]
+chr=LG4, #snp=81, max_slidewin_neighbor=81, init_slidewin=10, begin
+chr=LG4, it=1, #diff=36, T=2.0, t=6s
+chr=LG4, it=2, #diff=0, #mono=1, εo=0.026, ξo=0.0, εseq=0.0035, ABmean=0.47, disperse=0.01, win=8_9, apt=31_10%, l=117cM, T=2.0, t=6|10|2_5|1s
+chr=LG4, it=3, #diff=2, εo=0.036, ξo=0.002, εseq=0.0048, ABmean=0.46, disperse=0.031, win=8_8, apt=23_6%, l=95cM, T=1.4, t=8|3|2_5|1s
+chr=LG4, it=4, #diff=1, εo=0.045, ξo=0.003, εseq=0.0044, ABmean=0.46, disperse=0.061, win=8_7, apt=10_10%, l=93cM, T=0.98, t=12|3|2_4|1s
+chr=LG4, it=5, #diff=0, εo=0.043, ξo=0.006, εseq=0.0039, ABmean=0.45, disperse=0.095, #del=0, win=6_5, apt=19_18%, l=87cM, T=0.686, t=8|3|2|2_3|1s
+chr=LG4, it=6, εo=0.039, ξo=0.007, εseq=0.0038, ABmean=0.46, disperse=0.115, win=6_5, apt=23_17%, l=89cM, T=0.48, t=3|2_3|1s
+chr=LG4, it=7, εo=0.037, ξo=0.007, εseq=0.0036, ABmean=0.46, disperse=0.132, win=6_4, apt=9_21%, l=85cM, T=0.24, t=3|2_3|1s
+chr=LG4, it=8, εo=0.035, ξo=0.007, εseq=0.0035, ABmean=0.46, disperse=0.153, win=4_4, apt=13_22%, l=90cM, T=0.12, t=3|2_3|1s
+chr=LG4, it=9, εo=0.033, ξo=0.009, εseq=0.0033, ABmean=0.46, disperse=0.178, win=3_3, apt=7_25%, l=84cM, T=0.06, t=3|1_2|1s
+chr=LG4, it=10, εo=0.031, ξo=0.01, εseq=0.0033, ABmean=0.46, disperse=0.187, win=3.0_3.1, apt=32_25%, l=85cM, T=0.01, t=3|1_3|1s
+chr=LG4, it=11, εo=0.029, ξo=0.013, εseq=0.0035, ABmean=0.46, disperse=0.187, win=2.9_3.4, apt=22_13%, l=88cM, T=0.0, t=6|1_2|2s
+chr=LG4, it=12, εo=0.026, ξo=0.015, εseq=0.0035, ABmean=0.46, disperse=0.187, win=2.7_3.2, apt=18_9%, l=84cM, T=0.0, t=6|1_3|2s
+chr=LG4, it=13, εo=0.025, ξo=0.016, εseq=0.0036, ABmean=0.46, disperse=0.188, win=2.7_3.3, apt=25_8%, l=83cM, T=0.0, t=5|1_3|2s
+chr=LG4, it=14, εo=0.024, ξo=0.016, εseq=0.0036, ABmean=0.46, disperse=0.188, #del_err=4, del_εo=0.29|0.3 at snps=30|69, del_ABm=0.99 at snps=43, del_disperse=1.091 at snps=12, l=83cM, T=0.0, t=6|2s
+chr=LG4, it=15, εo=0.017, ξo=0.016, εseq=0.0038, ABmean=0.45, disperse=0.178, l=83cM, T=0.0, t=5|1s
+chr=LG4, it=16, εo=0.017, ξo=0.017, εseq=0.0038, ABmean=0.45, disperse=0.18, l=83cM, T=0.0, t=5|1s
+chr=LG4, it=17, #skeleton=56, #segment=56, εo=0.0109, ξo=0.017, εseq=0.0038, ABmean=0.44, disperse=0.167, l=80cM, t=6s
+chr=LG4, it=18, #skeleton=56, #segment=56, εo=0.0108, ξo=0.017, εseq=0.0037, ABmean=0.44, disperse=0.169, l=80cM, t=6s
+chr=LG4, it=19, #skeleton=56, #segment=56, εo=0.0109, ξo=0.017, εseq=0.0037, ABmean=0.44, disperse=0.169, l=80cM, t=6s
+chr=LG4, logl=-11641.5, #snp=81, #snp_incl=77, l=80.3cM, fmiss=0.0|0.0|0.0|0.0, t=201s, mem=1444|1356MB, end
+tused =219.4s for all 4 chromosomes 
+readby_chromosome! #markers=297, genome_length=338.87cM, tused=4.4seconds, mem=2236|2235MB
+No offspring with too large peroffspringerror. 
+save peroffspringerror in example_magicimpute_peroffspringerror.csv
+save founderimputed genofile: example_magicimpute_founder.vcf.gz, tused=0.1s
+save deletion file: example_magicimpute_deletion.csv
+save refinedmap file: example_magicimpute_map.csv
+End, 2024-07-07T02:46:53, tused = 230.8 seconds by magicimpute_founder!
+----------------------------------------------------------------------------
+save design plot in example_magicimpute_ped.png
+---------------------------magicimpute_offspring!---------------------------
+list of options: 
+model = jointmodel
+likeparameters = LikeParameters(0.005, nothing, nothing, nothing, nothing, nothing, 0.0)
+isfounderinbred = true
+threshimpute = 0.9
+phasealg = unphase
+isparallel = true(nworkers=10)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+tempdirectory = C:\Users\zheng026\AppData\Local\Temp
+outstem = example_magicimpute
+outext = .vcf.gz
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicimpute.log>)
+verbose = true
+founderformat = GT_haplo
+offspringformat = AD
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=297
+saveby_chromosome, tused=0.2seconds, mem=2245|2237MB
+chr=LG1, reading magicgeno, tused=1.7s, mem=1431|1403
+chr=LG1, foundererror=0.005(0.005~0.005)
+chr=LG1, offspringerror=0.0156(0.0~0.1605)
+chr=LG1, peroffspringerror=0.0143(0.0~0.1273)
+chr=LG1, seqerror=0.0038(0.0~0.025)
+chr=LG1, allelebalancemean=0.5024(0.1051~0.8843)
+chr=LG1, allelebalancedisperse=0.1923(0.0~0.8221)
+chr=LG1, alleledropout=0.0(0.0~0.0)
+chr=LG1, forwardbackward, #snp=70, chrlen=94cM, tused=3.8s, mem=1470|1406MB
+chr=LG1, #snp=70, tused=11.0s, mem=1431|1406MB, end
+chr=LG2, reading magicgeno, tused=1.9s, mem=1449|1416
+chr=LG2, foundererror=0.005(0.005~0.005)
+chr=LG2, offspringerror=0.016(0.0~0.1753)
+chr=LG2, peroffspringerror=0.0153(0.0~0.1429)
+chr=LG2, seqerror=0.0044(0.0~0.0273)
+chr=LG2, allelebalancemean=0.5292(0.1087~0.8664)
+chr=LG2, allelebalancedisperse=0.1862(0.0~0.799)
+chr=LG2, alleledropout=0.0(0.0~0.0)
+chr=LG2, forwardbackward, #snp=78, chrlen=90cM, tused=3.8s, mem=1492|1421MB
+chr=LG2, #snp=78, tused=11.2s, mem=1447|1421MB, end
+chr=LG3, reading magicgeno, tused=1.8s, mem=1448|1399
+chr=LG3, foundererror=0.005(0.005~0.005)
+chr=LG3, offspringerror=0.0199(0.0~0.1633)
+chr=LG3, peroffspringerror=0.015(0.0~0.1508)
+chr=LG3, seqerror=0.0031(0.0~0.0121)
+chr=LG3, allelebalancemean=0.4866(0.1386~0.7953)
+chr=LG3, allelebalancedisperse=0.1961(0.0~0.8454)
+chr=LG3, alleledropout=0.0(0.0~0.0)
+chr=LG3, forwardbackward, #snp=72, chrlen=74cM, tused=3.9s, mem=1462|1402MB
+chr=LG3, #snp=72, tused=11.2s, mem=1427|1402MB, end
+chr=LG4, reading magicgeno, tused=1.9s, mem=1374|1351
+chr=LG4, foundererror=0.005(0.005~0.005)
+chr=LG4, offspringerror=0.0171(0.0~0.1334)
+chr=LG4, peroffspringerror=0.0166(0.0~0.1346)
+chr=LG4, seqerror=0.0038(0.0~0.0337)
+chr=LG4, allelebalancemean=0.447(0.1379~0.7742)
+chr=LG4, allelebalancedisperse=0.1798(0.0~0.9031)
+chr=LG4, alleledropout=0.0(0.0~0.0)
+chr=LG4, forwardbackward, #snp=77, chrlen=80cM, tused=3.8s, mem=1422|1353MB
+chr=LG4, #snp=77, tused=11.1s, mem=1381|1355MB, end
+tused =13.4s for all chromosomes
+readby_chromosome!, tused=3.7seconds, mem=2237|2237MB
+save in example_magicimpute_genofreq.csv
+save in example_magicimpute_genofreq.png
+save imputed genofile in example_magicimpute_geno.vcf.gz, tused=0.3s
+End, 2024-07-07T02:47:15, tused = 22.3 seconds by magicimpute_offspring!
+----------------------------------------------------------------------------
+founderformat = GT_haplo
+offspringformat = GT_unphased
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=297
+End, 2024-07-07T02:47:15, tused = 253.2 seconds by magicimpute!
+============================================================================
+tau=0.896|0.837|0.919|0.747
+tau=0.964|0.961|0.95|0.922
+mapcompare in example_magicimpute_compare_inputmap.png
+End, 2024-07-07T02:47:19, tused = 264.5 seconds by magicimpute
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+tused = 264.5s in magicimpute, see logfile = example_magicimpute.log
+founder accuracy: 4×7 DataFrame
+ Row │ founder  noffspring  nmarker  miss_afterimpute  ntrue  nonimpute  correctimpute
+     │ String   Int64       Int64    Float64           Int64  Float64    Float64
+─────┼─────────────────────────────────────────────────────────────────────────────────
+   1 │ P1              200      297               0.0     27        0.0       0.925926
+   2 │ P2              200      297               0.0     30        0.0       0.933333
+   3 │ P3              200      297               0.0     20        0.0       0.8
+   4 │ P4              100      297               0.0     21        0.0       0.857143
+save founder imputation accuracy in example_magicimpute_founderacc.csv
+offspring accuracy: 3×7 DataFrame
+ Row │ subpop  subpopsize  nmarker  miss_afterimpute  ntrue  nonimpute  correctimpute
+     │ String  Int64       Int64    Float64           Int64  Float64    Float64
+─────┼────────────────────────────────────────────────────────────────────────────────
+   1 │ pop1           100      297        0.00828283    608  0.0444079       0.951807
+   2 │ pop2           100      297        0.0423569     697  0.131994        0.859504
+   3 │ pop3           100      297        0.0435354    1012  0.0899209       0.915309
+save founder imputation accuracy in example_magicimpute_offspringacc.csv
+End, 2024-07-07T02:47:27, tused = 275.4 seconds by magicmask_impute
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣

@@ -1,0 +1,10 @@
+##col_1, id, variable ID && CI0.95 = 0.95 confidence interval for the peak && CI0.95_marker = CI in terms of nearest marker ID
+##col_2, peak, peak of scan profile
+id,peak
+marker,snp414
+linkagegroup,LG3
+poscm,49.9417
+physposbp,missing
+loglike,-168.6087
+CI0.95,44.6673 ~ 52.4684
+CI0.95_marker,snp386 ~ snp404

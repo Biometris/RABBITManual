@@ -1,0 +1,67 @@
+magicreconstruct, logfile=example_magicreconstruct.log, 2024-07-07T02:47:28
+==============================magicreconstruct==============================
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [55d4db80] MagicReconstruct v1.1.1 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicReconstruct`
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check offspring: OK. All 300 offspring in pedfile are also in samples in genofile
+check samples: OK. All 304 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_magicimpute_geno.vcf.gz
+ pedinfo = example_magicfilter_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+nthreads=6
+list of file options: 
+genofile = example_magicimpute_geno.vcf.gz
+pedinfo = example_magicfilter_ped.csv
+formatpriority = ["GP", "AD", "GT"]
+isphysmap = false
+recomrate = 1.0
+commentstring = ##
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+formmagicgeno, tused=3.4seconds, mem=2288|2262MB
+------------------------------magicreconstruct------------------------------
+list of options: 
+model = jointmodel
+likeparameters = LikeParameters(0.005, nothing, nothing, nothing, nothing, nothing, 0.0)
+chrsubset = all chromosomes
+snpsubset = all markers
+hmmalg = forwardbackward
+isignorephase = false
+nplot_subpop = 1
+posteriordigits = 4
+isparallel = true(nworker=10)
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+tempdirectory = C:\Users\zheng026\AppData\Local\Temp
+outstem = example_magicreconstruct
+outext = .csv.gz
+logfile = IOStream(<file d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline\example_magicreconstruct.log>)
+verbose = true
+Genetic positions of markers in each chromosome are in non-descreasing order
+founderformat = GT_haplo
+offspringformat = GP
+#founder=4, #offspring=300, #subpop=3, #chr=4, #snp=297
+saveby_chromosome, tused=0.2s, mem=2278|2260MB
+chr=LG1, forwardbackward, #snp=70, chrlen=94cM, tused=1.5s, mem=1287|1264MB
+chr=LG2, forwardbackward, #snp=78, chrlen=90cM, tused=1.5s, mem=1328|1304MB
+chr=LG3, forwardbackward, #snp=72, chrlen=74cM, tused=0.6s, mem=1298|1284MB
+chr=LG4, forwardbackward, #snp=77, chrlen=80cM, tused=0.7s, mem=1359|1343MB
+tused =12.5s for all chromosomes
+detect outliers, tused=0.8s
+no outlier offspring
+saving large output might take quite a few minutes!
+save in example_magicreconstruct_ancestry.csv.gz, tused=0.9s
+save in example_magicreconstruct_ped.png
+save in example_magicreconstruct_inbredcoef.png
+save condprob in example_magicreconstruct_probplots.tar
+End, 2024-07-07T02:47:49, tused = 17.5 seconds by magicreconstruct
+----------------------------------------------------------------------------
+End, 2024-07-07T02:47:49, tused = 21.0 seconds by magicreconstruct
+============================================================================

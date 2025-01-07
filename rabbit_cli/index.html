@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>CLI · RABBIT</title><meta name="title" content="CLI · RABBIT"/><meta property="og:title" content="CLI · RABBIT"/><meta property="twitter:title" content="CLI · RABBIT"/><meta name="description" content="Documentation for RABBIT."/><meta property="og:description" content="Documentation for RABBIT."/><meta property="twitter:description" content="Documentation for RABBIT."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">RABBIT</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><input class="collapse-toggle" id="menuitem-2" type="checkbox"/><label class="tocitem" for="menuitem-2"><span class="docs-label">Guide</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../run_rabbit/">Run RABBIT</a></li><li><input class="collapse-toggle" id="menuitem-2-2" type="checkbox"/><label class="tocitem" for="menuitem-2-2"><span class="docs-label">Prepare Inputs</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../prepare_input/prepare_genofile/">Prepare genofile</a></li><li><a class="tocitem" href="../prepare_input/prepare_pedinfo_designcode/">Prepare pedinfo: designcode</a></li><li><a class="tocitem" href="../prepare_input/prepare_pedinfo_pedfile/">Prepare pedinfo: pedfile</a></li><li><a class="tocitem" href="../prepare_input/prepare_phenofile/">Prepare phenofile</a></li><li><a class="tocitem" href="../prepare_input/prepare_convert/">Prepare by converting </a></li></ul></li><li><a class="tocitem" href="../understand_output/">Understand outputs</a></li><li><a class="tocitem" href="../key_options/">Key options</a></li><li><a class="tocitem" href="../statistical_framework/">Statistical framework</a></li></ul></li><li><input class="collapse-toggle" id="menuitem-3" type="checkbox"/><label class="tocitem" for="menuitem-3"><span class="docs-label">Pipeline</span><i class="docs-chevron"></i></label><ul class="collapsed"><li><a class="tocitem" href="../pipeline/s0_pipeline_overview/">Overview</a></li><li><a class="tocitem" href="../pipeline/s1_magicsimulate/">S1 MagicSimulate</a></li><li><a class="tocitem" href="../pipeline/s2_magicfilter/">S2 MagicFilter</a></li><li><a class="tocitem" href="../pipeline/s3_magiccall/">S3 MagicCall</a></li><li><a class="tocitem" href="../pipeline/s4_magicmap/">S4 MagicMap</a></li><li><a class="tocitem" href="../pipeline/s5_magicimpute/">S5 MagicImpute</a></li><li><a class="tocitem" href="../pipeline/s6_magicreconstruct/">S6 MagicReconstruct</a></li><li><a class="tocitem" href="../pipeline/s7_magicscan/">S7 MagicScan</a></li></ul></li><li class="is-active"><a class="tocitem" href>CLI</a><ul class="internal"><li><a class="tocitem" href="#rabbit_simfhaplo.jl"><span><code>rabbit_simfhaplo.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_generate_magicped.jl"><span><code>rabbit_generate_magicped.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicsimulate.jl"><span><code>rabbit_magicsimulate.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_parsebreedped.jl"><span><code>rabbit_parsebreedped.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_vcffilter.jl"><span><code>rabbit_vcffilter.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_resetmap.jl"><span><code>rabbit_resetmap.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicparse.jl"><span><code>rabbit_magicparse.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicfilter.jl"><span><code>rabbit_magicfilter.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magiccall.jl"><span><code>rabbit_magiccall.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicmap.jl"><span><code>rabbit_magicmap.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicmask.jl"><span><code>rabbit_magicmask.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicimpute.jl"><span><code>rabbit_magicimpute.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_imputeaccuracy.jl"><span><code>rabbit_imputeaccuracy.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicmask_impute.jl"><span><code>rabbit_magicmask_impute.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicreconstruct.jl"><span><code>rabbit_magicreconstruct.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_thinancestry.jl"><span><code>rabbit_thinancestry.jl</code></span></a></li><li><a class="tocitem" href="#rabbit_magicscan.jl"><span><code>rabbit_magicscan.jl</code></span></a></li></ul></li><li><a class="tocitem" href="../rabbit_api/">API</a></li><li><a class="tocitem" href="../ref/">Citations</a></li></ul><div class="docs-version-selector field has-addons visible"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"><option value="#" selected="selected">v1.0.0</option></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>CLI</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>CLI</a></li></ul></nav><div class="docs-right"><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="RABBIT&#39;s-command-line-interface(CLI)"><a class="docs-heading-anchor" href="#RABBIT&#39;s-command-line-interface(CLI)">RABBIT&#39;s command line interface(CLI)</a><a id="RABBIT&#39;s-command-line-interface(CLI)-1"></a><a class="docs-heading-anchor-permalink" href="#RABBIT&#39;s-command-line-interface(CLI)" title="Permalink"></a></h1><p>See section <code>pipeline</code> for the description of output files.</p><ul><li><a href="#RABBIT&#39;s-command-line-interface(CLI)">RABBIT&#39;s command line interface(CLI)</a></li><li class="no-marker"><ul><li><a href="#rabbit_simfhaplo.jl"><code>rabbit_simfhaplo.jl</code></a></li><li><a href="#rabbit_generate_magicped.jl"><code>rabbit_generate_magicped.jl</code></a></li><li><a href="#rabbit_magicsimulate.jl"><code>rabbit_magicsimulate.jl</code></a></li><li><a href="#rabbit_parsebreedped.jl"><code>rabbit_parsebreedped.jl</code></a></li><li><a href="#rabbit_vcffilter.jl"><code>rabbit_vcffilter.jl</code></a></li><li><a href="#rabbit_resetmap.jl"><code>rabbit_resetmap.jl</code></a></li><li><a href="#rabbit_magicparse.jl"><code>rabbit_magicparse.jl</code></a></li><li><a href="#rabbit_magicfilter.jl"><code>rabbit_magicfilter.jl</code></a></li><li><a href="#rabbit_magiccall.jl"><code>rabbit_magiccall.jl</code></a></li><li><a href="#rabbit_magicmap.jl"><code>rabbit_magicmap.jl</code></a></li><li><a href="#rabbit_magicmask.jl"><code>rabbit_magicmask.jl</code></a></li><li><a href="#rabbit_magicimpute.jl"><code>rabbit_magicimpute.jl</code></a></li><li><a href="#rabbit_imputeaccuracy.jl"><code>rabbit_imputeaccuracy.jl</code></a></li><li><a href="#rabbit_magicmask_impute.jl"><code>rabbit_magicmask_impute.jl</code></a></li><li><a href="#rabbit_magicreconstruct.jl"><code>rabbit_magicreconstruct.jl</code></a></li><li><a href="#rabbit_thinancestry.jl"><code>rabbit_thinancestry.jl</code></a></li><li><a href="#rabbit_magicscan.jl"><code>rabbit_magicscan.jl</code></a></li></ul></li></ul><h2 id="rabbit_simfhaplo.jl"><a class="docs-heading-anchor" href="#rabbit_simfhaplo.jl"><code>rabbit_simfhaplo.jl</code></a><a id="rabbit_simfhaplo.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_simfhaplo.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_simfhaplo.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_simfhaplo.jl [--nsnp NSNP] [--nparent NPARENT]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--chrlen CHRLEN] [-o OUTFILE] [-w WORKDIR]
+                        [-h]
+
+Simulating founder haplotypes
+
+optional arguments:
+  --nsnp NSNP           total number of SNPs (type: Int64, default:
+                        1000)
+  --nparent NPARENT     number of parents (type: Int64, default: 4)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --chrlen CHRLEN       list of chromosome lengths (in centi-Morgan),
+                        e.g, &quot;[100,100]&quot; denotes 100 cM for each of
+                        two chromosomes (default: &quot;[100]&quot;)
+  -o, --outfile OUTFILE
+                        output filename (default: &quot;sim_fhaplo.vcf.gz&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_generate_magicped.jl"><a class="docs-heading-anchor" href="#rabbit_generate_magicped.jl"><code>rabbit_generate_magicped.jl</code></a><a id="rabbit_generate_magicped.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_generate_magicped.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_generate_magicped.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_generate_magicped.jl [--designcodes DESIGNCODES]
+                        [--founders FOUNDERS]
+                        [--subpopsizes SUBPOPSIZES] [-o OUTSTEM]
+                        [-w WORKDIR] [-h]
+
+Generate RABBIT-format pedigree file
+
+optional arguments:
+  --designcodes DESIGNCODES
+                        design codes for each subpopulation
+  --founders FOUNDERS   founders for each subpopulation
+  --subpopsizes SUBPOPSIZES
+                        population sizes for each subpopulation
+  -o, --outstem OUTSTEM
+                        outstem of output files (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicsimulate.jl"><a class="docs-heading-anchor" href="#rabbit_magicsimulate.jl"><code>rabbit_magicsimulate.jl</code></a><a id="rabbit_magicsimulate.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicsimulate.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicsimulate.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicsimulate.jl -g FHAPLOFILE -p PEDINFO
+                        [--popsize POPSIZE]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--foundererror FOUNDERERROR]
+                        [--offspringerror OFFSPRINGERROR]
+                        [--foundermiss FOUNDERMISS]
+                        [--offspringmiss OFFSPRINGMISS]
+                        [--seqfrac SEQFRAC] [--seqdepth SEQDEPTH]
+                        [--seqerror SEQERROR]
+                        [--allelebalancemean ALLELEBALANCEMEAN]
+                        [--allelebalancedisperse ALLELEBALANCEDISPERSE]
+                        [--ispheno ISPHENO] [--pheno_nqtl PHENO_NQTL]
+                        [--pheno_h2 PHENO_H2]
+                        [--nplot_subpop NPLOT_SUBPOP] [-o OUTSTEM]
+                        [-w WORKDIR] [-h]
+
+Simulating genotypic data in connected multiparental populations
+
+optional arguments:
+  -g, --fhaplofile FHAPLOFILE
+                        filename for founder haplotypes including
+                        marker map
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --popsize POPSIZE     poulation size, i.e. the number of offspring
+                        (type: Int64, default: 200)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --foundererror FOUNDERERROR
+                        distribution of founder allelic error rate
+                        among markers (default: &quot;Beta(1,199)&quot;)
+  --offspringerror OFFSPRINGERROR
+                        distribution of offspring allelic error rate
+                        among markers (default: &quot;Beta(1,199)&quot;)
+  --foundermiss FOUNDERMISS
+                        distribution of founder genotype msissing
+                        fraction among markers (default: &quot;Beta(1,9)&quot;)
+  --offspringmiss OFFSPRINGMISS
+                        distribution of offspring genotype msissing
+                        fraction among markers (default: &quot;Beta(1,9)&quot;)
+  --seqfrac SEQFRAC     fraction of markers being genotyped by
+                        sequencing, and the rest by SNP array. (type:
+                        Float64, default: 0.0)
+  --seqdepth SEQDEPTH   distribution of mean read depth among markers
+                        (default: &quot;Gamma(2,5)&quot;)
+  --seqerror SEQERROR   distribution of sequence read error
+                        probability (default: &quot;Beta(1,999)&quot;)
+  --allelebalancemean ALLELEBALANCEMEAN
+                        distribution of allelic balance mean among
+                        markers (default: &quot;Beta(10,10)&quot;)
+  --allelebalancedisperse ALLELEBALANCEDISPERSE
+                        distribution of allele balance overdispersion
+                        among markers (default: &quot;Exponential(0.05)&quot;)
+  --ispheno ISPHENO     if true, simulate phenotypes (type: Bool,
+                        default: false)
+  --pheno_nqtl PHENO_NQTL
+                        number of QTLs for simulating phenotypes
+                        (type: Int64, default: 1)
+  --pheno_h2 PHENO_H2   heritablity for simulating phenotypes (type:
+                        Float64, default: 0.5)
+  --nplot_subpop NPLOT_SUBPOP
+                        number of plots per subpoplation (type: Int64,
+                        default: 10)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_parsebreedped.jl"><a class="docs-heading-anchor" href="#rabbit_parsebreedped.jl"><code>rabbit_parsebreedped.jl</code></a><a id="rabbit_parsebreedped.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_parsebreedped.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_parsebreedped.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_parsebreedped.jl -p PEDFILE [--fixed_nself FIXED_NSELF]
+                        [--commentstring COMMENTSTRING]
+                        [--delim DELIM] [-o OUTFILE] [-w WORKDIR] [-h]
+
+Parse breed pedigree file
+
+optional arguments:
+  -p, --pedfile PEDFILE
+                        breed-format pedigree file with the first
+                        three columns: sample, pedcode, nself
+  --fixed_nself FIXED_NSELF
+                        number of selfing generations for the 3rd col
+                        = &quot;fixed&quot; (type: Int64, default: 10)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  --delim DELIM         delimiter separates each chunk of data within
+                        line string (type: AbstractChar, default: &#39;,&#39;)
+  -o, --outfile OUTFILE
+                        output magicped-format pedigree file (default:
+                        &quot;magicped.csv&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_vcffilter.jl"><a class="docs-heading-anchor" href="#rabbit_vcffilter.jl"><code>rabbit_vcffilter.jl</code></a><a id="rabbit_vcffilter.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_vcffilter.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_vcffilter.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_vcffilter.jl -g GENOFILE [--setmarkerid SETMARKERID]
+                        [--delsamples DELSAMPLES] [--deldupe DELDUPE]
+                        [--delmultiallelic DELMULTIALLELIC]
+                        [--delmonomorphic DELMONOMORPHIC]
+                        [--seqstrech SEQSTRECH]
+                        [--snp_maxmiss SNP_MAXMISS]
+                        [--snp_minmaf SNP_MINMAF]
+                        [--commentstring COMMENTSTRING] [-o OUTSTEM]
+                        [-w WORKDIR] [-h]
+
+Filter for biallelic markers in vcf file
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        vcf genofile
+  --setmarkerid SETMARKERID
+                        if true, set markerid in format of CHROM_POS
+                        or snp{i} with {i} being the marker index if
+                        CHROM or POS is missing. If it is nothing,
+                        setmarkerid = true only if markerid is
+                        missing.  (default: &quot;nothing&quot;)
+  --delsamples DELSAMPLES
+                        list of samples to be deleted (default:
+                        &quot;nothing&quot;)
+  --deldupe DELDUPE     if true, delete sucessive markers that have
+                        exactly duplicated genotypes in format of GT
+                        (type: Bool, default: false)
+  --delmultiallelic DELMULTIALLELIC
+                        delete markers with &gt;2 alleles (type: Bool,
+                        default: true)
+  --delmonomorphic DELMONOMORPHIC
+                        delete markers with only one allele (type:
+                        Bool, default: true)
+  --seqstrech SEQSTRECH
+                        delete non-initial markers in a sequence
+                        stretch of length &lt;= seqstretch (in bp),
+                        assuming marker are ordered by physical
+                        positions. If it is not positive, no filtering
+                        for short streches. (type: Int64, default: 0)
+  --snp_maxmiss SNP_MAXMISS
+                        delete markers with missing fraction &gt;
+                        snp_maxmiss (type: Float64, default: 0.99)
+  --snp_minmaf SNP_MINMAF
+                        delete markers with minor allele frequency &lt;
+                        snp_minmaf (type: Float64, default: 0.01)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  -o, --outstem OUTSTEM
+                        outstem of output files (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_resetmap.jl"><a class="docs-heading-anchor" href="#rabbit_resetmap.jl"><code>rabbit_resetmap.jl</code></a><a id="rabbit_resetmap.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_resetmap.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_resetmap.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_resetmap.jl -g GENOFILE --mapfile MAPFILE
+                        [--commentstring COMMENTSTRING] [-o OUTSTEM]
+                        [-w WORKDIR] [-h]
+
+Replace marker map in input genofile with that of mapfile
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        vcf genofile
+  --mapfile MAPFILE     file for marker map, it can either be in VCF
+                        format or in CSV format. For CSV-format, it
+                        must contain at least four columns: marker,
+                        chromosome poscm, physposbp. The values for
+                        the last three coloumns can be missingstring
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  -o, --outstem OUTSTEM
+                        outstem of output files (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicparse.jl"><a class="docs-heading-anchor" href="#rabbit_magicparse.jl"><code>rabbit_magicparse.jl</code></a><a id="rabbit_magicparse.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicparse.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicparse.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicparse.jl -g GENOFILE -p PEDINFO
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--formatpriority FORMATPRIORITY]
+                        [--isphysmap ISPHYSMAP]
+                        [--recomrate RECOMRATE]
+                        [--isbreedped ISBREEDPED]
+                        [--fixed_nself FIXED_NSELF]
+                        [--commentstring COMMENTSTRING]
+                        [--outext OUTEXT] [-o OUTSTEM] [-w WORKDIR]
+                        [-v VERBOSE] [-h]
+
+Parse genofile and  pedfile
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[AD,GT]&quot;)
+  --isphysmap ISPHYSMAP
+                        if true, transform physical map into genetic
+                        map using recomrate, and overwrite the exist
+                        genetic map. If false, keep input physical
+                        and/or genetic map. (type: Bool, default:
+                        false)
+  --recomrate RECOMRATE
+                        constant recombation rate in cM/Mbp (type:
+                        Float64, default: 1.0)
+  --isbreedped ISBREEDPED
+                        if true, input pedinfo is a breedped-format
+                        file instead of magicped-format pedfile for
+                        RABBIT. If it is nothing, it is internally
+                        set. (default: &quot;nothing&quot;)
+  --fixed_nself FIXED_NSELF
+                        number of selfing generations for the 3rd col
+                        = &quot;fixed&quot; (type: Int64, default: 10)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  --outext OUTEXT       extension of output genofile (default:
+                        &quot;.vcf.gz&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicfilter.jl"><a class="docs-heading-anchor" href="#rabbit_magicfilter.jl"><code>rabbit_magicfilter.jl</code></a><a id="rabbit_magicfilter.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicfilter.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicfilter.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicfilter.jl -g GENOFILE -p PEDINFO
+                        [--formatpriority FORMATPRIORITY]
+                        [--isphysmap ISPHYSMAP]
+                        [--recomrate RECOMRATE] [--model MODEL]
+                        [--likeparameters LIKEPARAMETERS]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--chrsubset CHRSUBSET] [--snpthin SNPTHIN]
+                        [--delmultiallelic DELMULTIALLELIC]
+                        [--del_inconsistent DEL_INCONSISTENT]
+                        [--min_subpop MIN_SUBPOP]
+                        [--min_nprogeny MIN_NPROGENY]
+                        [--snp_monosubpop SNP_MONOSUBPOP]
+                        [--snp_mono2miss SNP_MONO2MISS]
+                        [--snp_minmaf SNP_MINMAF]
+                        [--snp_maxomiss SNP_MAXOMISS]
+                        [--or_snp_maxfmiss OR_SNP_MAXFMISS]
+                        [--offspring_maxmiss OFFSPRING_MAXMISS]
+                        [--isfilterdupe ISFILTERDUPE]
+                        [--offspring_maxcorr OFFSPRING_MAXCORR]
+                        [--offspring_cutcorr OFFSPRING_CUTCORR]
+                        [--commentstring COMMENTSTRING]
+                        [--outext OUTEXT] [-o OUTSTEM] [-w WORKDIR]
+                        [-v VERBOSE] [-h]
+
+Filter markers and individuals in connected multiparental populations
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[AD,GT]&quot;)
+  --isphysmap ISPHYSMAP
+                        if true, transform physical map into genetic
+                        map using recomrate, and overwrite the exist
+                        genetic map. If false, keep input physical
+                        and/or genetic map. (type: Bool, default:
+                        false)
+  --recomrate RECOMRATE
+                        constant recombation rate in cM/Mbp (type:
+                        Float64, default: 1.0)
+  --model MODEL         &quot;depmodel&quot;, &quot;indepmodel&quot;, or &quot;jointmodel&quot;
+                        specifies prior dependence of ancestral prior
+                        process along two homologous chromosomes
+                        within an offspring (default: &quot;jointmodel&quot;)
+  --likeparameters LIKEPARAMETERS
+                        Set error rate values in the genotypic data
+                        model.  (default: &quot;LikeParameters()&quot;)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --chrsubset CHRSUBSET
+                        subset of chromosomes, with nothing denoting
+                        all chromosomes,        e.g, &quot;[2,10]&quot; denotes
+                        the second and tenth chromosomes (default:
+                        &quot;nothing&quot;)
+  --snpthin SNPTHIN     subset of markers by taking every snpthin-th
+                        markers (type: Int64, default: 1)
+  --delmultiallelic DELMULTIALLELIC
+                        delete markers with &gt;2 alleles (type: Bool,
+                        default: true)
+  --del_inconsistent DEL_INCONSISTENT
+                        if true, delete markers with inconsistent
+                        changes of founder genotypes. (type: Bool,
+                        default: false)
+  --min_subpop MIN_SUBPOP
+                        delete subpopulaions with size &lt; min_subpop
+                        (type: Int64, default: 1)
+  --min_nprogeny MIN_NPROGENY
+                        delete founder and their progeny if the number
+                        of progeny &lt; min_nprogeny (type: Int64,
+                        default: 1)
+  --snp_monosubpop SNP_MONOSUBPOP
+                        monomorphic test for a subpopulation at a
+                        marker only if #observed genotypes &gt;=
+                        snp_monosubpop. (type: Int64, default: 20)
+  --snp_mono2miss SNP_MONO2MISS
+                        if true, offspring genotypes in each
+                        monomorphic subpopulation are set to missing,
+                        and otherwise only inconsistent offspring
+                        genotypes are corrected. And if it is nothing,
+                        offspring genotypes are not changed. (default:
+                        &quot;true&quot;)
+  --snp_minmaf SNP_MINMAF
+                        test monomorphic for a subpopulation only if
+                        its minor allele frequency (maf) &lt; snp_minmaf.
+                        And filter for markers with maf &gt;= snp_minmaf.
+                        (type: Float64, default: 0.05)
+  --snp_maxomiss SNP_MAXOMISS
+                        filter for markers with missing fraction in
+                        offspring &lt;= snp_maxomiss || missing fraction
+                        in founder &lt;  or_snp_maxfmiss (type: Float64,
+                        default: 1.0)
+  --or_snp_maxfmiss OR_SNP_MAXFMISS
+                        filter for markers with missing fraction in
+                        offspring &lt;= snp_maxomiss || missing fraction
+                        in founder &lt;  or_snp_maxfmiss (type: Float64,
+                        default: 0.0)
+  --offspring_maxmiss OFFSPRING_MAXMISS
+                        delete offspring if its missing fraction &gt;
+                        offspring_maxmiss (type: Float64, default:
+                        1.0)
+  --isfilterdupe ISFILTERDUPE
+                        if true, keep only one of duplicated
+                        individuals (type: Bool, default: false)
+  --offspring_maxcorr OFFSPRING_MAXCORR
+                        two offspring are duplciated if their
+                        correlation &gt; offspring_maxcorr (type:
+                        Float64, default: 0.99)
+  --offspring_cutcorr OFFSPRING_CUTCORR
+                        pairwise offspring correlations are set zeros
+                        if they &lt; offspring_cutcorr (type: Float64,
+                        default: 0.4)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  --outext OUTEXT       extension of output genofile (default:
+                        &quot;.vcf.gz&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magiccall.jl"><a class="docs-heading-anchor" href="#rabbit_magiccall.jl"><code>rabbit_magiccall.jl</code></a><a id="rabbit_magiccall.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magiccall.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magiccall.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magiccall.jl -g GENOFILE -p PEDINFO [--model MODEL]
+                        [--likeparameters LIKEPARAMETERS]
+                        [--threshlikeparameters THRESHLIKEPARAMETERS]
+                        [--priorlikeparameters PRIORLIKEPARAMETERS]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--threshcall THRESHCALL]
+                        [--israwcall ISRAWCALL]
+                        [--isinfererror ISINFERERROR]
+                        [--nworker NWORKER] [--outext OUTEXT]
+                        [-o OUTSTEM] [-w WORKDIR] [-v VERBOSE] [-h]
+
+Single marker genotype call in connected multiparental populations
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --model MODEL         &quot;depmodel&quot;, &quot;indepmodel&quot;, or &quot;jointmodel&quot;
+                        specifies prior dependence of ancestral prior
+                        process along two homologous chromosomes
+                        within an offspring (default: &quot;jointmodel&quot;)
+  --likeparameters LIKEPARAMETERS
+                        parameters for genotypic data model. If
+                        isinfererror = true, parameters with values
+                        being nothing will be inferred.  (default:
+                        &quot;LikeParameters(offspringerror=0.04,peroffspringerror=0.0,alleledropout=0.0)&quot;)
+  --threshlikeparameters THRESHLIKEPARAMETERS
+                        markers with inferred likeparameters values &gt;
+                        threshlikeparameters values will be deleted
+                        (default:
+                        &quot;ThreshLikeParameters(seqerror=0.05)&quot;)
+  --priorlikeparameters PRIORLIKEPARAMETERS
+                        priors for likelihood parameters (default:
+                        &quot;PriorLikeParameters(seqerror=0.005)&quot;)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --threshcall THRESHCALL
+                        genotye call if maximum posterior probability
+                        &gt; threshcall (default: &quot;nothing&quot;)
+  --israwcall ISRAWCALL
+                        if true, perform raw genotype calling (type:
+                        Bool, default: false)
+  --isinfererror ISINFERERROR
+                        if true, infer marker specific error rates. If
+                        it is nothing, isinfererror = !israwcall
+                        (default: &quot;nothing&quot;)
+  --nworker NWORKER     number of parallel workers for computing among
+                        chromosomes (type: Int64, default: 1)
+  --outext OUTEXT       extension of output genofile (default:
+                        &quot;.vcf.gz&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicmap.jl"><a class="docs-heading-anchor" href="#rabbit_magicmap.jl"><code>rabbit_magicmap.jl</code></a><a id="rabbit_magicmap.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicmap.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicmap.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicmap.jl -g GENOFILE -p PEDINFO [--ncluster NCLUSTER]
+                        [--minncluster MINNCLUSTER]
+                        [--maxncluster MAXNCLUSTER]
+                        [--minsilhouette MINSILHOUETTE]
+                        [--formatpriority FORMATPRIORITY]
+                        [--model MODEL]
+                        [--likeparameters LIKEPARAMETERS]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--snpthin SNPTHIN]
+                        [--ispermmarker ISPERMMARKER]
+                        [--isbinning ISBINNING]
+                        [--mincomponentsize MINCOMPONENTSIZE]
+                        [--minlodcluster MINLODCLUSTER]
+                        [--minlodorder MINLODORDER]
+                        [--knncluster KNNCLUSTER]
+                        [--knnorder KNNORDER] [--nworker NWORKER]
+                        [--commentstring COMMENTSTRING] [-o OUTSTEM]
+                        [-w WORKDIR] [-v VERBOSE] [-h]
+
+Genetic map construction in connected multiparental populations
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --ncluster NCLUSTER   number of linkage groups. If it is nothing,
+                        ncluster will be inferred in the range of
+                        [minncluster, maxncluster] (default:
+                        &quot;nothing&quot;)
+  --minncluster MINNCLUSTER
+                        min number of linkage groups. If it is
+                        nothing, minncluster is set to 1 if ncluster =
+                        nothing and otherwise it is set to ncluster
+                        (default: &quot;nothing&quot;)
+  --maxncluster MAXNCLUSTER
+                        max number of linkage groups. If it is
+                        nothing, maxncluster is set to 30 if ncluster
+                        = nothing and otherwise it is set to ncluster
+                        (default: &quot;nothing&quot;)
+  --minsilhouette MINSILHOUETTE
+                        delete markers withg silhouette scores &lt;
+                        minsilhouette (type: Float64, default: 0.5)
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[GT,AD]&quot;)
+  --model MODEL         &quot;depmodel&quot;, &quot;indepmodel&quot;, or &quot;jointmodel&quot;
+                        specifies prior dependence of ancestral prior
+                        process along two homologous chromosomes
+                        within an offspring (default: &quot;jointmodel&quot;)
+  --likeparameters LIKEPARAMETERS
+                        Set error rate values in the genotypic data
+                        model.  (default: &quot;LikeParameters()&quot;)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --snpthin SNPTHIN     thin markers by taking every snpthin-th
+                        markers (type: Int64, default: 1)
+  --ispermmarker ISPERMMARKER
+                        if true, permute input marker ordering (type:
+                        Bool, default: true)
+  --isbinning ISBINNING
+                        if ture, bin duplicate marker. By default,
+                        isbinning=true only if #markers &gt; 10^4.
+                        (default: &quot;nothing&quot;)
+  --mincomponentsize MINCOMPONENTSIZE
+                        connectecd components of size &lt;
+                        mincomponentsize are removed. If it is
+                        nothing, it is internally set.  (default:
+                        &quot;nothing&quot;)
+  --minlodcluster MINLODCLUSTER
+                        minimum lod score for clustering. If it is
+                        nothing, it is internally set.  (default:
+                        &quot;nothing&quot;)
+  --minlodorder MINLODORDER
+                        minimum lod score for ordering. If it is
+                        nothing, it is internally set.  (default:
+                        &quot;nothing&quot;)
+  --knncluster KNNCLUSTER
+                        number of nearest neighbors for clustering. If
+                        -1, it is set to the nearest integer of
+                        0.1*#markers (type: Int64, default: -1)
+  --knnorder KNNORDER   number of nearest neighbors for ordering. If
+                        -1, it is set to the nearest integer of
+                        sqrt(#markers) (type: Int64, default: -1)
+  --nworker NWORKER     number of parallel workers for computing
+                        (type: Int64, default: 1)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicmask.jl"><a class="docs-heading-anchor" href="#rabbit_magicmask.jl"><code>rabbit_magicmask.jl</code></a><a id="rabbit_magicmask.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicmask.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicmask.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicmask.jl -g GENOFILE -p PEDINFO
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--formatpriority FORMATPRIORITY]
+                        [--isphysmap ISPHYSMAP]
+                        [--recomrate RECOMRATE]
+                        [--foundermask FOUNDERMASK]
+                        [--offspringmask OFFSPRINGMASK]
+                        [--skipmarker SKIPMARKER] [--minread MINREAD]
+                        [--commentstring COMMENTSTRING]
+                        [--outext OUTEXT] [-o OUTSTEM] [-w WORKDIR]
+                        [-v VERBOSE] [-h]
+
+Mask genotypes for evaluating imputation
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[AD,GT]&quot;)
+  --isphysmap ISPHYSMAP
+                        if true, transform physical map into genetic
+                        map using recomrate, and overwrite the exist
+                        genetic map. If false, keep input physical
+                        and/or genetic map. (type: Bool, default:
+                        false)
+  --recomrate RECOMRATE
+                        constant recombation rate in cM/Mbp (type:
+                        Float64, default: 1.0)
+  --foundermask FOUNDERMASK
+                        fraction of observed founder genotypes to be
+                        masked (type: Float64, default: 0.1)
+  --offspringmask OFFSPRINGMASK
+                        fraction of observed offspring genotypes to be
+                        masked (type: Float64, default: 0.1)
+  --skipmarker SKIPMARKER
+                        skip masking markers with offspring missing
+                        fraction &gt;= skipmarker (type: Float64,
+                        default: 0.99)
+  --minread MINREAD     skip masking genotypes with #reads &lt; minread
+                        (type: Int64, default: 10)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  --outext OUTEXT       extension of output genofile (default:
+                        &quot;.vcf.gz&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicimpute.jl"><a class="docs-heading-anchor" href="#rabbit_magicimpute.jl"><code>rabbit_magicimpute.jl</code></a><a id="rabbit_magicimpute.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicimpute.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicimpute.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicimpute.jl -g GENOFILE -p PEDINFO
+                        [--formatpriority FORMATPRIORITY]
+                        [--isphysmap ISPHYSMAP]
+                        [--recomrate RECOMRATE] [--model MODEL]
+                        [--likeparameters LIKEPARAMETERS]
+                        [--threshlikeparameters THRESHLIKEPARAMETERS]
+                        [--priorlikeparameters PRIORLIKEPARAMETERS]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--chrsubset CHRSUBSET] [--snpthin SNPTHIN]
+                        [--target TARGET]
+                        [--threshimpute THRESHIMPUTE]
+                        [--byfounder BYFOUNDER] [--mapfile MAPFILE]
+                        [--iscorrectfounder ISCORRECTFOUNDER]
+                        [--phasealg PHASEALG]
+                        [--isdelmarker ISDELMARKER]
+                        [--isinfererror ISINFERERROR]
+                        [--tukeyfence TUKEYFENCE]
+                        [--isordermarker ISORDERMARKER]
+                        [--inittemperature INITTEMPERATURE]
+                        [--coolrate COOLRATE]
+                        [--isspacemarker ISSPACEMARKER]
+                        [--trimcm TRIMCM]
+                        [--skeletonsize SKELETONSIZE]
+                        [--nworker NWORKER]
+                        [--commentstring COMMENTSTRING]
+                        [--outext OUTEXT] [-o OUTSTEM] [-w WORKDIR]
+                        [-t TEMPDIRECTORY] [-v VERBOSE] [-h]
+
+Genotype imputation in connected multiparental populations
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[AD,GT]&quot;)
+  --isphysmap ISPHYSMAP
+                        if true, transform physical map into genetic
+                        map using recomrate, and overwrite the exist
+                        genetic map. If false, keep input physical
+                        and/or genetic map. (type: Bool, default:
+                        false)
+  --recomrate RECOMRATE
+                        constant recombation rate in cM/Mbp (type:
+                        Float64, default: 1.0)
+  --model MODEL         &quot;depmodel&quot;, &quot;indepmodel&quot;, or &quot;jointmodel&quot;
+                        specifies prior dependence of ancestral prior
+                        process along two homologous chromosomes
+                        within an offspring (default: &quot;jointmodel&quot;)
+  --likeparameters LIKEPARAMETERS
+                        parameters for genotypic data model. If
+                        isinfererror = true, parameters with values
+                        being nothing will be inferred.  (default:
+                        &quot;LikeParameters()&quot;)
+  --threshlikeparameters THRESHLIKEPARAMETERS
+                        markers with inferred likeparameters values &gt;
+                        threshlikeparameters values will be deleted
+                        (default: &quot;ThreshLikeParameters()&quot;)
+  --priorlikeparameters PRIORLIKEPARAMETERS
+                        priors for likelihood parameters (default:
+                        &quot;PriorLikeParameters()&quot;)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --chrsubset CHRSUBSET
+                        subset of chromosomes, with nothing denoting
+                        all chromosomes,        e.g, &quot;[2,10]&quot; denotes
+                        the second and tenth chromosomes (default:
+                        &quot;nothing&quot;)
+  --snpthin SNPTHIN     subset of markers by taking every snpthin-th
+                        markers (type: Int64, default: 1)
+  --target TARGET       imputing target: &quot;all&quot;, &quot;founder&quot;, or
+                        &quot;offspring&quot; (default: &quot;all&quot;)
+  --threshimpute THRESHIMPUTE
+                        impute offspring if maximum posterior
+                        probability &gt; threshimpute (type: Float64,
+                        default: 0.9)
+  --byfounder BYFOUNDER
+                        alternatively impute founder blocks (a
+                        parition of founders). If byfounder==-1,
+                        impute all founders simulteneously. If
+                        byfounder==0, partition is based on the
+                        founders of each subpopulation. If
+                        byfounder&gt;0, the size of each block &lt;=
+                        byfounder and each block is the subset of a
+                        subpopulation&#39;s founders. (type: Int64,
+                        default: 0)
+  --mapfile MAPFILE     if it is nothing, use the marker map in the
+                        input genofile, and otherwise reset genetic
+                        marker map by that in mapfile. The mapfile can
+                        either be in VCF format or in CSV format. For
+                        VCF format, genetic map is provided in the
+                        &quot;INFO&quot; column using keywords &quot;LINKAGEGROUP&quot;
+                        and &quot;POSCM&quot;. For CSV-format, it must contain
+                        at least five columns: &quot;marker&quot;,
+                        &quot;linkagegroup&quot;, &quot;poscm&quot;, &quot;physchrom&quot;, and
+                        &quot;physposbp&quot;, where missing values are
+                        represented by &quot;NA&quot;. If there exist columns
+                        &quot;binno&quot; and &quot;represent&quot;, markers with the same
+                        &quot;binno&quot; are binned with the represent being
+                        the marker with non-zero &quot;represent&quot;. All the
+                        rest columns are ignored.  (default:
+                        &quot;nothing&quot;)
+  --iscorrectfounder ISCORRECTFOUNDER
+                        if true, perform parental error correction. If
+                        it is nothing, iscorrectfounder=true if
+                        model=depmodel or offspring do not have
+                        genotypes in AD format (default: &quot;nothing&quot;)
+  --phasealg PHASEALG   If phasealg=forwardbackward, the output
+                        diplotype probabilities (in format GP),
+                        corresonding to the phased genotypes 0|0, 0|1,
+                        1|0, and 1|1, are caculated based on the
+                        forward-backward algorithm, and the output
+                        phased offspring genotypes (in format GT) are
+                        given by those with the largest diplotype
+                        probabilities if they are greater than
+                        threshcall. If phasealg=viterbi, the output
+                        diplotype probabilities (GP) are set to those
+                        of phasealg=forwardbackward, and the output
+                        phased genotypes (GT) are caculated based on
+                        the Viterbi algorithm. If phasealg=unphase,
+                        the output genotype probabilities (GP),
+                        corresonding to the unphased genotypes 0/0,
+                        0/1, and 1/1, are calculated by transforming
+                        the posterior diplotype probabilities of
+                        phasealg=forwardbackward, and the output
+                        unphased genotypes (GT) are given by those
+                        with the largest genotype probabilities if
+                        they are greater than threshcall.  (default:
+                        &quot;viterbi&quot;)
+  --isdelmarker ISDELMARKER
+                        if true, perform marker deletion (type: Bool,
+                        default: true)
+  --isinfererror ISINFERERROR
+                        if true, infer marker specific error rates.
+                        If it is nothing, isinfererror=true if model ≠
+                        depmodel or isspacemarker = true. It is
+                        necessary to set isinfererror = true for
+                        accurately imputing sequence data in
+                        heterozygous populations. (default: &quot;nothing&quot;)
+  --tukeyfence TUKEYFENCE
+                        tukeyfence for detecting outlier error rates
+                        (type: Float64, default: 3.0)
+  --isordermarker ISORDERMARKER
+                        if true, refine local marker ordering, If it
+                        is nothing, isordermarker=true only if mapfile
+                        exists. (default: &quot;nothing&quot;)
+  --inittemperature INITTEMPERATURE
+                        initial temperature of annealing algorithm for
+                        marker ordering. If it is nothing,
+                        inittemperature=2.0 if isordermarker and
+                        otherwise 0.0 (default: &quot;nothing&quot;)
+  --coolrate COOLRATE   temperature is mutiplied by coolrate after
+                        each iteration of annealing agrogrithm (type:
+                        Float64, default: 0.7)
+  --isspacemarker ISSPACEMARKER
+                        if true, refine inter-marker distances. If it
+                        is nothing, isspacemarker=true if mapfile
+                        exists or isordermarker=true or
+                        isphysmap=true. (default: &quot;nothing&quot;)
+  --trimcm TRIMCM       remove markers of each segment with distances
+                        to the flanking markers &gt; trimcm (cM) (type:
+                        Float64, default: 20.0)
+  --skeletonsize SKELETONSIZE
+                        number of skeleton markers for piecewisely
+                        re-scaling inter-marker distances. If it is
+                        nothing, skeletonsize is set to 200 for
+                        depmdoel and otherwise 100 (default:
+                        &quot;nothing&quot;)
+  --nworker NWORKER     number of parallel workers for computing among
+                        chromosomes (type: Int64, default: 1)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  --outext OUTEXT       extension of output genofile (default:
+                        &quot;.vcf.gz&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -t, --tempdirectory TEMPDIRECTORY
+                        tempdirectory directory for intermediate
+                        results (default: tempdir())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_imputeaccuracy.jl"><a class="docs-heading-anchor" href="#rabbit_imputeaccuracy.jl"><code>rabbit_imputeaccuracy.jl</code></a><a id="rabbit_imputeaccuracy.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_imputeaccuracy.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_imputeaccuracy.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_imputeaccuracy.jl -f TRUEGENOFILE -g IMPUTEDGENOFILE
+                        -p PEDINFO [-o OUTSTEM] [-w WORKDIR]
+                        [-v VERBOSE] [-h]
+
+Calculate imputation accuracy per parent and per subpopulation
+
+optional arguments:
+  -f, --truegenofile TRUEGENOFILE
+                        true genofile resulting from `magicsimulate`
+                        or magicmask_reversed genofile resulting from
+                        `magicmask`
+  -g, --imputedgenofile IMPUTEDGENOFILE
+                        imputed genofile resulting from `magicimpute`
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicmask_impute.jl"><a class="docs-heading-anchor" href="#rabbit_magicmask_impute.jl"><code>rabbit_magicmask_impute.jl</code></a><a id="rabbit_magicmask_impute.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicmask_impute.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicmask_impute.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicmask_impute.jl -g GENOFILE -p PEDINFO
+                        [--formatpriority FORMATPRIORITY]
+                        [--isphysmap ISPHYSMAP]
+                        [--recomrate RECOMRATE]
+                        [--foundermask FOUNDERMASK]
+                        [--offspringmask OFFSPRINGMASK]
+                        [--skipmarker SKIPMARKER] [--minread MINREAD]
+                        [--model MODEL]
+                        [--likeparameters LIKEPARAMETERS]
+                        [--threshlikeparameters THRESHLIKEPARAMETERS]
+                        [--priorlikeparameters PRIORLIKEPARAMETERS]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--chrsubset CHRSUBSET] [--snpthin SNPTHIN]
+                        [--target TARGET]
+                        [--threshimpute THRESHIMPUTE]
+                        [--byfounder BYFOUNDER] [--mapfile MAPFILE]
+                        [--iscorrectfounder ISCORRECTFOUNDER]
+                        [--phasealg PHASEALG]
+                        [--isdelmarker ISDELMARKER]
+                        [--isinfererror ISINFERERROR]
+                        [--tukeyfence TUKEYFENCE]
+                        [--isordermarker ISORDERMARKER]
+                        [--inittemperature INITTEMPERATURE]
+                        [--coolrate COOLRATE]
+                        [--isspacemarker ISSPACEMARKER]
+                        [--trimcm TRIMCM]
+                        [--skeletonsize SKELETONSIZE]
+                        [--nworker NWORKER]
+                        [--commentstring COMMENTSTRING]
+                        [--outext OUTEXT] [-o OUTSTEM] [-w WORKDIR]
+                        [-t TEMPDIRECTORY] [-v VERBOSE] [-h]
+
+Genotype masking and imputation in connected multiparental populations
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[AD,GT]&quot;)
+  --isphysmap ISPHYSMAP
+                        if true, transform physical map into genetic
+                        map using recomrate, and overwrite the exist
+                        genetic map. If false, keep input physical
+                        and/or genetic map. (type: Bool, default:
+                        false)
+  --recomrate RECOMRATE
+                        constant recombation rate in cM/Mbp (type:
+                        Float64, default: 1.0)
+  --foundermask FOUNDERMASK
+                        fraction of observed founder genotypes to be
+                        masked (type: Float64, default: 0.1)
+  --offspringmask OFFSPRINGMASK
+                        fraction of observed offspring genotypes to be
+                        masked (type: Float64, default: 0.1)
+  --skipmarker SKIPMARKER
+                        skip masking markers with offspring missing
+                        fraction &gt;= skipmarker (type: Float64,
+                        default: 0.99)
+  --minread MINREAD     skip masking genotypes with #reads &lt; minread
+                        (type: Int64, default: 10)
+  --model MODEL         &quot;depmodel&quot;, &quot;indepmodel&quot;, or &quot;jointmodel&quot;
+                        specifies prior dependence of ancestral prior
+                        process along two homologous chromosomes
+                        within an offspring (default: &quot;jointmodel&quot;)
+  --likeparameters LIKEPARAMETERS
+                        parameters for genotypic data model. If
+                        isinfererror = true, parameters with values
+                        being nothing will be inferred.  (default:
+                        &quot;LikeParameters()&quot;)
+  --threshlikeparameters THRESHLIKEPARAMETERS
+                        markers with inferred likeparameters values &gt;
+                        threshlikeparameters values will be deleted
+                        (default: &quot;ThreshLikeParameters()&quot;)
+  --priorlikeparameters PRIORLIKEPARAMETERS
+                        priors for likelihood parameters (default:
+                        &quot;PriorLikeParameters()&quot;)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --chrsubset CHRSUBSET
+                        subset of chromosomes, with nothing denoting
+                        all chromosomes,        e.g, &quot;[2,10]&quot; denotes
+                        the second and tenth chromosomes (default:
+                        &quot;nothing&quot;)
+  --snpthin SNPTHIN     subset of markers by taking every snpthin-th
+                        markers (type: Int64, default: 1)
+  --target TARGET       imputing target: &quot;all&quot;, &quot;founder&quot;, or
+                        &quot;offspring&quot; (default: &quot;all&quot;)
+  --threshimpute THRESHIMPUTE
+                        impute offspring if maximum posterior
+                        probability &gt; threshimpute (type: Float64,
+                        default: 0.9)
+  --byfounder BYFOUNDER
+                        alternatively impute founder blocks (a
+                        parition of founders). If byfounder==-1,
+                        impute all founders simulteneously. If
+                        byfounder==0, partition is based on the
+                        founders of each subpopulation. If
+                        byfounder&gt;0, the size of each block &lt;=
+                        byfounder and each block is the subset of a
+                        subpopulation&#39;s founders. (type: Int64,
+                        default: 0)
+  --mapfile MAPFILE     if it is nothing, use the marker map in the
+                        input genofile, and otherwise reset genetic
+                        marker map by that in mapfile. The mapfile can
+                        either be in VCF format or in CSV format. For
+                        VCF format, genetic map is provided in the
+                        &quot;INFO&quot; column using keywords &quot;LINKAGEGROUP&quot;
+                        and &quot;POSCM&quot;. For CSV-format, it must contain
+                        at least five columns: &quot;marker&quot;,
+                        &quot;linkagegroup&quot;, &quot;poscm&quot;, &quot;physchrom&quot;, and
+                        &quot;physposbp&quot;, where missing values are
+                        represented by &quot;NA&quot;. If there exist columns
+                        &quot;binno&quot; and &quot;represent&quot;, markers with the same
+                        &quot;binno&quot; are binned with the represent being
+                        the marker with non-zero &quot;represent&quot;. All the
+                        rest columns are ignored.  (default:
+                        &quot;nothing&quot;)
+  --iscorrectfounder ISCORRECTFOUNDER
+                        if true, perform parental error correction. If
+                        it is nothing, iscorrectfounder=true if
+                        model=depmodel or isinfererror=true or
+                        offspring do not have genotypes in AD format
+                        (default: &quot;nothing&quot;)
+  --phasealg PHASEALG   If phasealg=forwardbackward, the output
+                        diplotype probabilities (in format GP),
+                        corresonding to the phased genotypes 0|0, 0|1,
+                        1|0, and 1|1, are caculated based on the
+                        forward-backward algorithm, and the output
+                        phased offspring genotypes (in format GT) are
+                        given by those with the largest diplotype
+                        probabilities if they are greater than
+                        threshcall. If phasealg=viterbi, the output
+                        diplotype probabilities (GP) are set to those
+                        of phasealg=forwardbackward, and the output
+                        phased genotypes (GT) are caculated based on
+                        the Viterbi algorithm. If phasealg=unphase,
+                        the output genotype probabilities (GP),
+                        corresonding to the unphased genotypes 0/0,
+                        0/1, and 1/1, are calculated by transforming
+                        the posterior diplotype probabilities of
+                        phasealg=forwardbackward, and the output
+                        unphased genotypes (GT) are given by those
+                        with the largest genotype probabilities if
+                        they are greater than threshcall.  (default:
+                        &quot;viterbi&quot;)
+  --isdelmarker ISDELMARKER
+                        if true, perform marker deletion (type: Bool,
+                        default: true)
+  --isinfererror ISINFERERROR
+                        if true, infer marker specific error rates.
+                        If it is nothing, isinfererror=true if model ≠
+                        depmodel or isspacemarker = true. It is
+                        necessary to set isinfererror = true for
+                        accurately imputing sequence data in
+                        heterozygous populations. (default: &quot;nothing&quot;)
+  --tukeyfence TUKEYFENCE
+                        tukeyfence for detecting outlier error rates
+                        (type: Float64, default: 3.0)
+  --isordermarker ISORDERMARKER
+                        if true, refine local marker ordering. If it
+                        is nothing, isordermarker=true only if mapfile
+                        exists. (default: &quot;nothing&quot;)
+  --inittemperature INITTEMPERATURE
+                        initial temperature of annealing algorithm for
+                        marker ordering. If it is nothing,
+                        inittemperature=2.0 if isordermarker and
+                        otherwise 0.0 (default: &quot;nothing&quot;)
+  --coolrate COOLRATE   temperature is mutiplied by coolrate after
+                        each iteration of annealing agrogrithm (type:
+                        Float64, default: 0.7)
+  --isspacemarker ISSPACEMARKER
+                        if true, refine inter-marker distances. If it
+                        is nothing, isspacemarker=true if mapfile
+                        exists or isordermarker=true or
+                        isphysmap=true. (default: &quot;nothing&quot;)
+  --trimcm TRIMCM       remove markers of each segment with distances
+                        to the flanking markers &gt; trimcm (cM)  (type:
+                        Float64, default: 20.0)
+  --skeletonsize SKELETONSIZE
+                        number of skeleton markers for piecewisely
+                        re-scaling inter-marker distances. If it is
+                        nothing, skeletonsize is set to 200 for
+                        depmdoel and otherwise 100 (default:
+                        &quot;nothing&quot;)
+  --nworker NWORKER     number of parallel workers for computing among
+                        chromosomes (type: Int64, default: 1)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  --outext OUTEXT       extension of output genofile (default:
+                        &quot;.vcf.gz&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -t, --tempdirectory TEMPDIRECTORY
+                        tempdirectory directory for intermediate
+                        results (default: tempdir())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicreconstruct.jl"><a class="docs-heading-anchor" href="#rabbit_magicreconstruct.jl"><code>rabbit_magicreconstruct.jl</code></a><a id="rabbit_magicreconstruct.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicreconstruct.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicreconstruct.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicreconstruct.jl -g GENOFILE -p PEDINFO
+                        [--formatpriority FORMATPRIORITY]
+                        [--isphysmap ISPHYSMAP]
+                        [--recomrate RECOMRATE] [--model MODEL]
+                        [--likeparameters LIKEPARAMETERS]
+                        [--isfounderinbred ISFOUNDERINBRED]
+                        [--chrsubset CHRSUBSET] [--snpthin SNPTHIN]
+                        [--hmmalg HMMALG]
+                        [--isignorephase ISIGNOREPHASE]
+                        [--nworker NWORKER]
+                        [--commentstring COMMENTSTRING] [-o OUTSTEM]
+                        [-w WORKDIR] [-t TEMPDIRECTORY]
+                        [--nplot_subpop NPLOT_SUBPOP] [-v VERBOSE]
+                        [-h]
+
+Haplotype reconstruction in connected multiparental populations
+
+optional arguments:
+  -g, --genofile GENOFILE
+                        filename for genotypic data file
+  -p, --pedinfo PEDINFO
+                        pedigree information: filename or stringcode
+  --formatpriority FORMATPRIORITY
+                        priorities of genotype formats in a decreasing
+                        order (default: &quot;[GP,AD,GT]&quot;)
+  --isphysmap ISPHYSMAP
+                        if true, transform physical map into genetic
+                        map using recomrate, and overwrite the exist
+                        genetic map. If false, keep input physical
+                        and/or genetic map. (type: Bool, default:
+                        false)
+  --recomrate RECOMRATE
+                        constant recombation rate in cM/Mbp (type:
+                        Float64, default: 1.0)
+  --model MODEL         &quot;depmodel&quot;, &quot;indepmodel&quot;, or &quot;jointmodel&quot;
+                        specifies prior dependence of ancestral prior
+                        process along two homologous chromosomes
+                        within an offspring (default: &quot;jointmodel&quot;)
+  --likeparameters LIKEPARAMETERS
+                        Set error rate values in the genotypic data
+                        model.  (default: &quot;LikeParameters()&quot;)
+  --isfounderinbred ISFOUNDERINBRED
+                        if true, founders are inbred, and otherwise
+                        outbred (type: Bool, default: true)
+  --chrsubset CHRSUBSET
+                        subset of chromosomes, with nothing denoting
+                        all chromosomes,        e.g, &quot;[2,10]&quot; denotes
+                        the second and tenth chromosomes (default:
+                        &quot;nothing&quot;)
+  --snpthin SNPTHIN     subset of markers by taking every snpthin-th
+                        markers (type: Int64, default: 1)
+  --hmmalg HMMALG       HMM alogrithm must be either forwardbackward
+                        or viterbi (default: &quot;forwardbackward&quot;)
+  --isignorephase ISIGNOREPHASE
+                        if true, the phases of offspring genotypes are
+                        ignored. (type: Bool, default: false)
+  --nworker NWORKER     number of parallel workers for computing among
+                        chromosomes (type: Int64, default: 1)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -t, --tempdirectory TEMPDIRECTORY
+                        tempdirectory directory for intermediate
+                        results (default: tempdir())
+  --nplot_subpop NPLOT_SUBPOP
+                        plots for up to nplot_subpop offspring in each
+                        subpopulation (type: Int64, default: 10)
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_thinancestry.jl"><a class="docs-heading-anchor" href="#rabbit_thinancestry.jl"><code>rabbit_thinancestry.jl</code></a><a id="rabbit_thinancestry.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_thinancestry.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_thinancestry.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_thinancestry.jl -g ANCESTRYFILE [--thincm THINCM]
+                        [-o OUTSTEM] [-w WORKDIR] [-h]
+
+Reduce ancestry results on a subset of markers such that inter-marker
+distances &lt;= thincm.
+
+optional arguments:
+  -g, --ancestryfile ANCESTRYFILE
+                        anncestry file resulting from magicreconstruct
+  --thincm THINCM       keep ancestry results on a subseut of markers
+                        such that inter-marker distances &lt;= thincm. By
+                        default, thincm=0, keeping only the first of
+                        markers at the same position.  (type: Float64,
+                        default: 0.0)
+  -o, --outstem OUTSTEM
+                        outstem of output files (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -h, --help            show this help message and exit
+</code></pre><h2 id="rabbit_magicscan.jl"><a class="docs-heading-anchor" href="#rabbit_magicscan.jl"><code>rabbit_magicscan.jl</code></a><a id="rabbit_magicscan.jl-1"></a><a class="docs-heading-anchor-permalink" href="#rabbit_magicscan.jl" title="Permalink"></a></h2><pre><code class="nohighlight hljs">julia rabbit_magicscan.jl -h</code></pre><pre><code class="nohighlight hljs">usage: rabbit_magicscan.jl -g ANCESTRYFILE -p PHENOFILE [-e EQUATION]
+                        [--thresholds THRESHOLDS] [--nperm NPERM]
+                        [--siglevels SIGLEVELS] [--islog10p ISLOG10P]
+                        [--missingstring MISSINGSTRING]
+                        [--commentstring COMMENTSTRING] [-o OUTSTEM]
+                        [-w WORKDIR] [-v VERBOSE] [-h]
+
+Genomic scan of QTLs in connected multiparental populations
+
+optional arguments:
+  -g, --ancestryfile ANCESTRYFILE
+                        ancestry file resulting from
+                        `magicreconstruct`
+  -p, --phenofile PHENOFILE
+                        phenotypic data file
+  -e, --equation EQUATION
+                        equation from linear model. If it is nothing,
+                        last_colname ~ 1 (default: &quot;nothing&quot;)
+  --thresholds THRESHOLDS
+                        list of thresholds for QTL detection. e.g,
+                        &quot;[4.0]&quot;. (default: &quot;nothing&quot;)
+  --nperm NPERM         number of permutations of phenotypes  for
+                        calculating unspecified thresholds (type:
+                        Int64, default: 200)
+  --siglevels SIGLEVELS
+                        significance levels for calculating thresholds
+                        by permutations,        e.g, &quot;[0.05, 0.10]&quot;.
+                        (default: &quot;[0.05]&quot;)
+  --islog10p ISLOG10P   if islog10p = true, profile refers to -log10
+                        P-value, and otherwise LOD score (type: Bool,
+                        default: false)
+  --missingstring MISSINGSTRING
+                        string denotes a missing phenotypic value
+                        (default: &quot;NA&quot;)
+  --commentstring COMMENTSTRING
+                        rows that begin with commentstring will be
+                        ignored (default: &quot;##&quot;)
+  -o, --outstem OUTSTEM
+                        stem of output filenames (default: &quot;outstem&quot;)
+  -w, --workdir WORKDIR
+                        directory for reading and writing files
+                        (default: pwd())
+  -v, --verbose VERBOSE
+                        if true, print messages on console (type:
+                        Bool, default: true)
+  -h, --help            show this help message and exit
+</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../pipeline/s7_magicscan/">« S7 MagicScan</a><a class="docs-footer-nextpage" href="../rabbit_api/">API »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Tuesday 7 January 2025 16:05">Tuesday 7 January 2025</span>. Using Julia version 1.11.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

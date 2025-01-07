@@ -1,0 +1,12 @@
+##col_1, founder, founder ID
+##col_2, subpop, subpopulation ID
+##col_3, subpopsize, size of the subpopulation
+##col_4, nmaker, number of markers
+##col_5, miss_afterimpute, fraction of missing genotypes for the subpopulation after imputation
+##col_6, ntrue, number of ground true genotypes for the subpopulation
+##col_7, nonimpute, fraction of ground true genotypes that are not imputed
+##col_8, correctimpute, fraction of ground true genotypes that are correctly imputedd
+subpop,subpopsize,nmarker,miss_afterimpute,ntrue,nonimpute,correctimpute
+pop1,100,297,0.008282828282828282,608,0.044407894736842105,0.9518072289156626
+pop2,100,297,0.04235690235690236,697,0.13199426111908177,0.859504132231405
+pop3,100,297,0.04353535353535354,1012,0.08992094861660078,0.9153094462540716

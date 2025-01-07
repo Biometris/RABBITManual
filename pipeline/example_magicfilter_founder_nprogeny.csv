@@ -1,0 +1,10 @@
+##col_1, founder, founder ID
+##col_2, nprogeny, number of progeny for the founder
+##col_3, nprogeny_after, number of progeny for the founder after filtering
+##col_4, ndel, number of progeny removed for the founder
+##col_5, keep, the founder is removed if keep = false
+founder,nprogeny,nprogeny_after,ndel,keep
+P2,200,200,0,true
+P1,200,200,0,true
+P4,100,100,0,true
+P3,200,200,0,true

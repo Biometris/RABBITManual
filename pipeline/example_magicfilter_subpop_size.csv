@@ -1,0 +1,7 @@
+##col_1, subpop, subpopulation ID
+##col_2, size, size of the subpopulation
+##col_3, keep, the subpopulation is removed if keep = false
+subpop,size,keep
+pop1,100,true
+pop2,100,true
+pop3,100,true

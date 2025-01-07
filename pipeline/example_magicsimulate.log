@@ -1,0 +1,61 @@
+magicsimulate, logfile=example_magicsimulate.log, 2024-07-07T02:39:38
+-------------------------------magicsimulate--------------------------------
+Julia version: 1.9.3
+Status `C:\Users\zheng026\.julia\environments\v1.9\Project.toml`
+  [16a984e6] MagicSimulate v0.5.0 `d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBIT\MagicSimulate`
+check genofile extension = .vcf.gz: OK
+check genofile existence: YES
+check pedfile extension = .csv: OK
+check pedfile existence: YES
+check samples allunique: YES
+check founders allunique: YES
+check founders: OK. All 4 founders = ["P1", "P2", "P3", "P4"] in pedfile are also in samples in genofile
+check offspring allunique: YES
+check samples: OK. All 4 samples in genofile are also in pedfile
+Pass all checks for 
+ genofile = example_fhaplo.vcf.gz
+ pedinfo = example_ped.csv
+ workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+list of args: 
+fhaplofile = example_fhaplo.vcf.gz
+pedinfo = example_ped.csv
+isfounderinbred = true
+popsize = 200
+error_randallele = 0.0
+foundererror = Beta{Float64}(α=1.0, β=19.0)
+offspringerror = Beta{Float64}(α=1.0, β=19.0)
+foundermiss = Beta{Float64}(α=1.0, β=9.0)
+offspringmiss = Beta{Float64}(α=1.0, β=9.0)
+seqfrac = 1.0
+seqerror = Beta{Float64}(α=1.0, β=199.0)
+allelebalancemean = Beta{Float64}(α=5.0, β=5.0)
+allelebalancedisperse = Exponential{Float64}(θ=0.2)
+alleledropout = Uniform{Float64}(a=0.0, b=1.0e-10)
+seqdepth = Gamma{Float64}(α=2.0, θ=5.0)
+seqdepth_overdispersion = Gamma{Float64}(α=1.0, θ=1.0)
+isobligate = false
+interference = 0
+ispheno = true
+pheno_nqtl = 1
+pheno_h2 = 0.5
+select_nqtl = 50
+select_dom = 0
+select_prop = 1.0
+nplot_subpop = 10
+commentstring = ##
+missingstring = NA
+workdir = d:\OneDrive - Wageningen University & Research\Chaozhi\Workspace\JuliaWorkspace\Workspace_RABBIT\RABBITDocs\docs\src\pipeline
+outstem = example
+outext = .vcf.gz
+logfile = example_magicsimulate.log
+verbose = false
+tused=1.03s in reading input files
+tused=5.95s in simulating inheritance pattern from pedinfo
+tused=1.21s in simulating truegeno from inheritance pattern and fhaplo
+tused=2.33s in simulating error and missing
+tused=6.87s in simulating phenotypes
+save in example_magicsimulate_truecontfgl_mosaic.png, tused=1.2s
+save in example_magicsimulate_truecontfgl_recom.png, example_magicsimulate_truecontfgl_recom.csv, tused=2.0s
+tused=9.19s in exporting
+End, 2024-07-07T02:40:05, tused = 27.68 seconds by magicsimulate
+----------------------------------------------------------------------------
